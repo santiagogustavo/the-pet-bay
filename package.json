@@ -1,0 +1,8 @@
+{
+  "name": "the-pet-bay",
+  "version": "0.0.0",
+  "main": "./src/index.js",
+  "repository": "https://github.com/santiagogustavo/the-pet-bay.git",
+  "author": "santiagogustavo <santiago.gustavo.mail@gmail.com>",
+  "license": "MIT"
+}
