@@ -1,9 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-}
-
 header {
   top: 0;
   width: 100%;
@@ -26,6 +20,8 @@ header img {
   border-radius: 50%;
   transition: all 0.2s ease;
 }
+
+/* NAVBAR STYLES */
 
 .navbar-logo, .navbar-user {
   position: relative;
@@ -74,13 +70,17 @@ header img {
   right: 0;
   padding-top: 60px;
   transition: all 0.2s ease;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .navbar-menu-content {
   position: relative;
   background-color: #fafafa;
   border: #3498db solid 2px;
-  border-radius: 5px;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .navbar-menu-content ul {
@@ -94,6 +94,13 @@ header img {
   margin-top: 15px;
 }
 
+.navbar-menu-content ul li i {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  color: #616161;
+}
+
 .navbar-menu-content ul li a {
   color: #0D47A1;
   text-decoration: none;
@@ -101,23 +108,4 @@ header img {
 
 .navbar-menu-content ul li a:hover {
   color: #1976D2;
-}
-
-/* MAIN APP STYLES */
-
-.app > * {
-  display: none;
-  padding: 15px;
-}
-
-.app > :last-child {
-  display: block;
-}
-
-.app > *:target {
-  display: block;
-}
-
-.app > *:target ~ * {
-  display: none;
 }

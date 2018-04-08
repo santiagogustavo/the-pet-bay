@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* MAIN APP STYLES */
+
+.app > * {
+  display: none;
+  padding: 15px;
+}
+
+.app > :last-child {
+  display: block;
+}
+
+.app > *:target {
+  display: block;
+}
+
+.app > *:target ~ * {
+  display: none;
+}
