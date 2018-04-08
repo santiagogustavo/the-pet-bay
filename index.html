@@ -39,18 +39,30 @@
       </div>
     </header>
 
+    <!-- CONTENT -->
     <main class="app" role="main">
       <section id="sign-in">
-       <div id="container">       
-        <form>
-         <label for="username">Usuario:</label>
-         <input type="text" id="username" name="username">
-         <label for="password">Password:</label>
-         <input type="password" id="password" name="password">
+        <h1 style="text-align: center">Entrar</h1>
+        <form class="form-user">
+          <ul>
+            <li>
+              <label for="username">Usuário</label>
+              <input type="text" id="username" name="username">
+            </li>
+            <li>
+              <label for="password">Senha</label>
+              <input type="password" id="password" name="password">
+            </li>
+          </ul>
         </form>
-        </div> 
-        <a href="#logged">ENTRAR</a>
-        <a href="#remember-password">ESQUECI MINHA SENHA</a>
+        <div class="sign-in-links">
+          <a class="link-button link-button-danger" href="#remember-password">
+            ESQUECI MINHA SENHA
+          </a>
+          <a class="link-button link-button-primary" style="margin-left: 20px" href="#logged">
+            ENTRAR
+          </a>
+        </div>
       </section>
 
       <section id="remember-password">
