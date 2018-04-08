@@ -7,8 +7,53 @@
     <link rel="stylesheet" type="text/css" href="assets/fonts/cream/stylesheet.css" />
     <link rel="stylesheet" type="text/css" href="assets/fonts/roboto/stylesheet.css" />
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/navbar.css" />
   </head>
   <body>
-    <div>Hello world!</div>
+    <!-- NAVBAR -->
+    <header>
+      <div class="navbar-logo">
+        <img src="assets/imgs/logo.png" />
+        <a href="">the pet bay</a>
+      </div>
+      <div class="navbar-user">
+        <p>Olá, Usuário!</p>
+        <div class="navbar-user-menu">
+          <img src="assets/imgs/user.png" />
+          <div class="navbar-menu">
+            <nav class="navbar-menu-content" role="navigation">
+              <ul>
+                <li>
+                  <a href="#sign-in">Entrar</a>
+                </li>
+                <li>
+                  <a href="#sign-up">Criar conta</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="app" role="main">
+      <section id="sign-in">
+        LOGIN
+        <a href="#logged">ENTRAR</a>
+      </section>
+
+      <section id="sign-up">
+        ACCOUNT
+      </section>
+
+      <section id="logged">
+        OLÁ USUÁRIO
+      </section>
+
+      <section id="landing-not-logged">
+        HELLO WORLD
+      </section>
+    </main>
+
   </body>
 </html>
