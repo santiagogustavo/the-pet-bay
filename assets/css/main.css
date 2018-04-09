@@ -83,3 +83,19 @@ h2 {
 .app > *:target ~ * {
   display: none;
 }
+
+.flex-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.flex-container div{
+  flex: 1;
+}
+
+.flex-item header {
+  flex: 1 100%;
+}
+
