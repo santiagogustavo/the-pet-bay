@@ -1,4 +1,4 @@
-header {
+.header-navbar {
   top: 0;
   width: 100%;
   height: 75px;
@@ -9,12 +9,12 @@ header {
   box-shadow: #00000055 0px 0px 5px;
 }
 
-header > * {
+.header-navbar > * {
   margin: auto;
   display: inline-block;
 }
 
-header img {
+.header-navbar img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -50,13 +50,12 @@ header img {
   margin-right: 20px;
 }
 
-.navbar-user-menu {
+.navbar-menu-container {
   position: relative;
   cursor: pointer;
-  margin-right: 20px;
 }
 
-.navbar-user-menu:hover .navbar-menu {
+.navbar-menu-container:hover .navbar-menu {
   opacity: 1;
   pointer-events: auto;
   margin-top: 0px;
@@ -84,6 +83,8 @@ header img {
   border-top: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  overflow: hidden;
+  color: #212121;
 }
 
 .navbar-menu-content ul {
@@ -98,6 +99,10 @@ header img {
   cursor: pointer;
 }
 
+.navbar-menu-content ul li:hover {
+  background-color: #FAFAFA;
+}
+
 .navbar-menu-content ul li i {
   height: 20px;
   width: 20px;
@@ -108,10 +113,6 @@ header img {
 .navbar-menu-content ul li a {
   color: #757575;
   text-decoration: none;
-}
-
-.navbar-menu-content ul li:hover {
-  background-color: #FAFAFA;
 }
 
 .navbar-sections > * {

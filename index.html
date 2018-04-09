@@ -9,18 +9,19 @@
     <link rel="stylesheet" type="text/css" href="assets/css/buttons.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/notification.css" />
     <link rel="stylesheet" href="vendor/fontawesome/css/fontawesome-all.css">
   </head>
   <body>
     <!-- NAVBAR -->
-    <header>
+    <header class="header-navbar">
       <div class="navbar-logo">
         <img src="assets/imgs/logo.png" />
         <a href="">the pet bay</a>
       </div>
       <div class="navbar-user">
         <p>Olá, Usuário!</p>
-        <div class="navbar-user-menu">
+        <div class="navbar-menu-container">
           <img src="assets/imgs/user.png" />
           <div class="navbar-menu">
             <nav class="navbar-menu-content" role="navigation">
@@ -57,6 +58,21 @@
             </nav>
           </div>
         </div>
+        <div class="navbar-notification navbar-menu-container" style="margin-left: 20px">
+          <i class="fas fa-bell">
+            <div class="notification-dot">1</div>
+          </i>
+          <div class="navbar-menu">
+            <nav class="navbar-menu-content" role="navigation">
+              Notificações
+            </nav>
+          </div>
+        </div>
+        <div class="navbar-notification" style="margin-left: 10px">
+          <i class="fas fa-shopping-cart">
+            <div class="notification-dot">3</div>
+          </i>
+        </div>
       </div>
     </header>
 
@@ -87,8 +103,10 @@
       </section>
 
       <section id="remember-password">
-       <h2 style="text-align: center">Recuperar sua senha</h2>
-        <p style="text-align: center">Insira seu usuário e email. Enviaremos um email de recuperação de senha para sua conta.</p>
+        <h2 style="text-align: center">Recuperar sua senha</h2>
+        <p style="text-align: center">
+          Insira seu usuário e email. Enviaremos um email de recuperação de senha para sua conta.
+        </p>
         <form class="form-user">
           <ul>
             <li>
@@ -109,7 +127,17 @@
       </section>
 
       <section id="resetpassword-sent">
-        Um email de recuperação de senha foi enviado para seu email.<br>Siga as instruções para a recuperação do acesso à sua conta.
+        <h2 style="text-align: center">Recuperar sua senha</h2>
+        <p style="text-align: center">
+          Um email de recuperação de senha foi enviado para seu email.
+          <br>
+          Siga as instruções para a recuperação do acesso à sua conta.
+        </p>
+        <div class="sign-in-links">
+          <a class="button button-primary" href="#">
+            VOLTAR
+          </a>
+        </div>
       </section>
       
       <section id="sign-up">
@@ -117,23 +145,20 @@
       </section>
 
       <section id="landing-page">
+        <h2 style="text-align: left">Promoções</h2>
         <div class="flex-container">
-         <header class="flex-item header">
-            <h2 style="text-align: left">Promoções</h2>
-         </header>
-         <div>
-          <img border="0" alt="Cat scratching tree" src="assets/imgs/cat_scratcher.jpg" width="250" height="250">
-          <a href='#prodNum001'>Arranhador para gato<br>De R$200,00 por apenas<br>R$199,00</a>
-         </div>
-         <div>
-          <img border="0" alt="Saara desert" src="assets/imgs/cat_sandbox.jpg" width="250" height="250">
-
-          <a href="#prodNum002">Banheiro para gato<br>De R$999,00 por apenas<br>R$998,99</a>
-         </div>
-         <div>
-          <img border="0" alt="Cat holy water leaking from faucet" src="assets/imgs/cat_holy_water.jpg" width="250" height="250">
-          <a href="#prodNum003">Bebedouro para gato<br>De apenas R$0,00 por apenas<br>R$-0,01</a>
-         </div>
+          <div>
+            <img border="0" alt="Cat scratching tree" src="assets/imgs/cat_scratcher.jpg" width="250" height="250">
+            <a href='#prodNum001'>Arranhador para gato<br>De R$200,00 por apenas<br>R$199,00</a>
+          </div>
+          <div>
+            <img border="0" alt="Saara desert" src="assets/imgs/cat_sandbox.jpg" width="250" height="250">
+            <a href="#prodNum002">Banheiro para gato<br>De R$999,00 por apenas<br>R$998,99</a>
+          </div>
+          <div>
+            <img border="0" alt="Cat holy water leaking from faucet" src="assets/imgs/cat_holy_water.jpg" width="250" height="250">
+            <a href="#prodNum003">Bebedouro para gato<br>De apenas R$0,00 por apenas<br>R$-0,01</a>
+          </div>
         </div>
         <div class="ads">
             <a href="#pet_hotel"><img style="height: 100%; width: 100%;object-fit: contain" alt="banner partner pet hotel" src="assets/imgs/pet_hotel_banner.jpg"></a>
