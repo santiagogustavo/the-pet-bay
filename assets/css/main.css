@@ -11,6 +11,11 @@ h1 {
   color: #212121;
 }
 
+h2 {
+  font-size: 30px;
+  color: #424242;
+}
+
 .form-user {
   width: 256px;
   margin: auto;
@@ -58,43 +63,6 @@ h1 {
   justify-content: center;
   margin: auto;
   margin-top: 30px;
-}
-
-.link-button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 14px;
-  text-decoration: none;
-  color: #fafafa;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: fit-content;
-  border-radius: 3px;
-  transition: all 0.1s ease;
-}
-
-.link-button-success {
-  background-color: #43A047;
-}
-
-.link-button-success:hover {
-  background-color: #66BB6A;
-}
-
-.link-button-primary {
-  background-color: #3498db;
-}
-
-.link-button-primary:hover {
-  background-color: #64B5F6;
-}
-
-.link-button-danger {
-  background-color: #c0392b;
-}
-
-.link-button-danger:hover {
-  background-color: #f44336;
 }
 
 .app > * {
