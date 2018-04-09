@@ -16,6 +16,17 @@ h2 {
   color: #424242;
 }
 
+h3 {
+  font-size: 26px;
+  color: #616161;
+}
+
+h4 {
+  font-size: 22px;
+  color: #757575;
+  font-weight: 200;
+}
+
 .form-user {
   width: 256px;
   margin: auto;
@@ -89,15 +100,53 @@ h2 {
   align-items: stretch;
   justify-content: space-around;
   flex-flow: row wrap;
-  background: #c2e0f4;
 }
 
-.flex-container div {
-  flex: 1;
+.promotion-cell {
+  flex: 1;  
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.promotion-image-container {
+  top: 0;
+  left: 0;
+  height: 125px;
+  width: 125px;
+}
+
+.promotion-image-container > img {
+  display: block;
+  height: 115px;
+  width: 115px;
+  margin: 5px;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+}
+
+.promotion-cell:hover > .promotion-image-container > img {
+  margin: 0px;
+  height: 125px;
+  width: 125px;
+}
+
+.promotion-text-container {
   margin: 10px;
-  padding: 3%;
-  background: #add5f0;
-  text-align: center;
+}
+
+.promotion-text-container h4 {
+  margin: 0 0 10px 0;
+}
+
+.promotion-text-container p {
+  margin: 0;
+}
+
+.promotion-text-container .big-price-tag {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .flex-item header {
@@ -110,4 +159,9 @@ h2 {
   background: #c2e0f4;
   height: 250px;
   object-fit: contain;
+}
+
+.small-separator-line {
+  width: 50px;
+  border-bottom: #212121 solid 3px;
 }
