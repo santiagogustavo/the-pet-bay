@@ -154,18 +154,39 @@ h4 {
   padding: 10px;
 }
 
-.ads {
-  margin: 10px 0 0 10px;
-  background: #c2e0f4;
-  height: 250px;
-  object-fit: contain;
-}
-
 .small-separator-line {
   width: 50px;
   border-bottom: #212121 solid 3px;
 }
 
-.user-info {
+.landing-logo {
+  width: auto;
+  text-align: center;
+  margin: 20px;
+}
+
+.landing-logo img {
+  width: 150px;
+  height: 150px;
+}
+
+.landing-logo p {
+  font-family: 'Cream', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.ads {
+  height: 150px;
+  width: 100%;
+  margin: 10px 0 0 10px;
+  overflow: hidden;
+}
     
+.ads img {
+  display: block;
+  height: 100%;
+  width: auto;
+  margin: auto;
 }
