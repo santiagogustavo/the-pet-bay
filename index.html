@@ -21,10 +21,10 @@
       </div>
       <div class="navbar-user">
         <p>Olá, Usuário!</p>
-        <div class="navbar-menu-container">
+        <div class="navbar-dropdown-container">
           <img src="assets/imgs/user.png" />
-          <div class="navbar-menu">
-            <nav class="navbar-menu-content" role="navigation">
+          <div class="navbar-dropdown">
+            <nav class="navbar-dropdown-content navbar-menu" role="navigation">
               <ul class="navbar-sections">
                 <section id="unsigned">
                   <li onclick="window.location = '#sign-in'">
@@ -58,14 +58,22 @@
             </nav>
           </div>
         </div>
-        <div class="navbar-notification navbar-menu-container" style="margin-left: 20px">
+        <div class="navbar-notification navbar-dropdown-container" style="margin-left: 20px">
           <i class="fas fa-bell">
             <div class="notification-dot">1</div>
           </i>
-          <div class="navbar-menu">
-            <nav class="navbar-menu-content" role="navigation">
-              Notificações
-            </nav>
+          <div class="navbar-dropdown">
+            <div class="navbar-dropdown-content">
+              <h4>Notificações</h4>
+              <nav class="navbar-menu">
+                <ul>
+                  <li>
+                    <i class="fas fa-calendar"></i>
+                    <div>Jonas, o gato tem uma consulta agendada para o dia 10/04/2018!</div>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
         <div class="navbar-notification" style="margin-left: 10px">

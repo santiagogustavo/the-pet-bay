@@ -50,18 +50,18 @@
   margin-right: 20px;
 }
 
-.navbar-menu-container {
+.navbar-dropdown-container {
   position: relative;
   cursor: pointer;
 }
 
-.navbar-menu-container:hover .navbar-menu {
+.navbar-dropdown-container:hover .navbar-dropdown {
   opacity: 1;
   pointer-events: auto;
   margin-top: 0px;
 }
 
-.navbar-menu {
+.navbar-dropdown {
   opacity: 0;
   pointer-events: none;
   margin-top: -10px;
@@ -75,7 +75,7 @@
   white-space: nowrap;
 }
 
-.navbar-menu-content {
+.navbar-dropdown-content {
   position: relative;
   background-color: white;
   box-shadow: #00000055 0px 0px 5px;
@@ -87,32 +87,54 @@
   color: #212121;
 }
 
-.navbar-menu-content ul {
+.navbar-dropdown-content h4 {
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
+  color: #757575;
+  border-bottom: #fafafa solid 2px;
+}
+
+.navbar-menu ul {
   position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
+  max-width: 300px;
 }
 
-.navbar-menu-content ul li {
+.navbar-menu ul li {
+  position: relative;
   padding: 8px 25px;
   cursor: pointer;
 }
 
-.navbar-menu-content ul li:hover {
+.navbar-menu ul li:hover {
   background-color: #FAFAFA;
 }
 
-.navbar-menu-content ul li i {
+.navbar-menu ul li * {
+  display: inline-block;
+  color: #757575;
+  vertical-align: top;
+}
+
+.navbar-menu ul li i {
   height: 20px;
   width: 20px;
   margin-right: 10px;
-  color: #757575;
 }
 
-.navbar-menu-content ul li a {
-  color: #757575;
+.navbar-menu ul li a {
   text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.navbar-menu ul li div {
+  word-wrap: normal;
+  white-space: normal;
+  width: 225px;
 }
 
 .navbar-sections > * {
