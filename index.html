@@ -67,15 +67,25 @@
       </section>
 
       <section id="remember-password">
-        <div id="container">
-          <form>
-          <label for="username">Usuario:</label>
-          <input type="text" id="username" name="username">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email">
-          </form>
+       <h2 style="text-align: center">Recuperar sua senha</h2>
+        <p style="text-align: center">Insira seu usuário e email. Enviaremos um email de recuperação de senha para sua conta.</p>
+        <form class="form-user">
+          <ul>
+            <li>
+              <label for="username">Usuario:</label>
+              <input type="text" id="username" name="username">
+            </li>
+            <li>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email">
+            </li>
+          </ul>
+        </form>
+        <div class="sign-in-links">
+          <a class="button button-primary" href="#resetpassword-sent">
+            ENVIAR
+          </a>
         </div>
-        <a href="#resetpassword-sent">ENVIAR</a>
       </section>
 
       <section id="resetpassword-sent">
