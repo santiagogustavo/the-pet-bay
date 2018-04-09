@@ -24,15 +24,35 @@
           <img src="assets/imgs/user.png" />
           <div class="navbar-menu">
             <nav class="navbar-menu-content" role="navigation">
-              <ul>
-                <li>
-                  <i class="fas fa-sign-in-alt"></i>
-                  <a href="#sign-in">Entrar</a>
-                </li>
-                <li>
-                  <i class="fas fa-user-plus"></i>
-                  <a href="#sign-up">Criar conta</a>
-                </li>
+              <ul class="navbar-sections">
+                <section id="unsigned">
+                  <li onclick="window.location = '#sign-in'">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <a href="#sign-in">Entrar</a>
+                  </li>
+                  <li onclick="window.location = '#sign-up'">
+                    <i class="fas fa-user-plus"></i>
+                    <a href="#sign-up">Criar conta</a>
+                  </li>
+                </section>
+                <section id="signed">
+                  <li onclick="window.location = '#my-pets'">
+                    <i class="fas fa-paw"></i>
+                    <a href="#my-pets">Meus Pets</a>
+                  </li>
+                  <li onclick="window.location = '#my-calendar'">
+                    <i class="far fa-calendar"></i>
+                    <a href="#my-calendar">Minha Agenda</a>
+                  </li>
+                  <li onclick="window.location = '#my-account'">
+                    <i class="fas fa-user"></i>
+                    <a  href="#my-account">Minha Conta</a>
+                  </li>
+                  <li onclick="window.location = '#unsigned'">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <a href="#unsigned">Sair</a>
+                  </li>
+                </section>
               </ul>
             </nav>
           </div>
@@ -60,7 +80,7 @@
           <a class="button button-danger" href="#remember-password">
             ESQUECI MINHA SENHA
           </a>
-          <a class="button button-primary" style="margin-left: 20px" href="#logged">
+          <a class="button button-primary" style="margin-left: 20px" href="#signed">
             ENTRAR
           </a>
         </div>
@@ -91,15 +111,12 @@
       <section id="resetpassword-sent">
         Um email de recuperação de senha foi enviado para seu email.<br>Siga as instruções para a recuperação do acesso à sua conta.
       </section>
+      
       <section id="sign-up">
         ACCOUNT
       </section>
 
-      <section id="logged">
-        OLÁ USUÁRIO
-      </section>
-
-      <section id="landing-not-logged">
+      <section id="landing-page">
         HELLO WORLD
       </section>
     </main>

@@ -68,7 +68,7 @@ header img {
   z-index: 1000;
   top: 0;
   right: 0;
-  padding-top: 60px;
+  padding-top: 59.5px;
   transition: all 0.2s ease;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -76,8 +76,9 @@ header img {
 
 .navbar-menu-content {
   position: relative;
-  background-color: #fafafa;
-  border: #3498db solid 2px;
+  background-color: white;
+  box-shadow: #00000055 0px 0px 5px;
+  /* border: #3498db solid 2px; */
   border-top: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -85,27 +86,44 @@ header img {
 
 .navbar-menu-content ul {
   position: relative;
-  margin: 0px;
-  padding: 15px 25px;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
-.navbar-menu-content ul li + li {
-  margin-top: 15px;
+.navbar-menu-content ul li {
+  padding: 8px 25px;
+  cursor: pointer;
 }
 
 .navbar-menu-content ul li i {
   height: 20px;
   width: 20px;
   margin-right: 10px;
-  color: #616161;
+  color: #757575;
 }
 
 .navbar-menu-content ul li a {
-  color: #0D47A1;
+  color: #757575;
   text-decoration: none;
 }
 
-.navbar-menu-content ul li a:hover {
-  color: #1976D2;
+.navbar-menu-content ul li:hover {
+  background-color: #FAFAFA;
+}
+
+.navbar-sections > * {
+  display: none;
+}
+
+.navbar-sections > :last-child {
+  display: block;
+}
+
+.navbar-sections > *:target {
+  display: block;
+}
+
+.navbar-sections > *:target ~ * {
+  display: none;
 }
