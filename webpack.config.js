@@ -17,11 +17,19 @@ module.exports = (env) => {
           exclude: /(node_modules|build|bundle)/,
           use: ['babel-loader', 'eslint-loader'],
         },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|svg|png)$/,
+          use: ['url-loader'],
+        },
       ],
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: Path.resolve(__dirname, 'src/index.html'),
+        template: Path.resolve(__dirname, 'public/index.html'),
         filename: 'index.html',
         inject: 'body',
       }),
