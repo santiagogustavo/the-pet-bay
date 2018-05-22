@@ -53,12 +53,14 @@ module.exports = (env) => {
     ...common,
     output: {
       path: Path.resolve(__dirname, 'dev'),
+      publicPath: Path.resolve(__dirname, 'dev'),
       filename: 'index.js',
     },
     devtool: 'inline-source-map',
     devServer: {
       compress: true,
       contentBase: Path.resolve(__dirname, 'dev'),
+      historyApiFallback: true,
       port: process.env.SERVER_PORT,
       stats: 'minimal',
     },
