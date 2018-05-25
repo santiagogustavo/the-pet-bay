@@ -22,10 +22,12 @@ The following instructions are passed considering `yarn` is properly installed a
 
 * Generate a production build with
   * `yarn build:prod`
+  * Access the application by running
+    * `yarn serve`
+  * If everything is OK, the server can be accessed at
+    * `localhost:5000`
   * That results in a minified and chunk-splitted bundle, which can be accessed in a more simple and performatic way
   * Production files are generated in **/build** directory
-  * Access the application by opening
-    * `index.html`
 
 ## Contributors
 

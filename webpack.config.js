@@ -48,11 +48,20 @@ module.exports = (env) => {
       ...common,
       output: {
         path: Path.resolve(__dirname, 'build'),
-        filename: 'index.js',
+        filename: '[name].bundle.js',
+        chunkFilename: '[name].chunk.js',
       },
-      devtool: 'eval',
       optimization: {
         minimize: true,
+        splitChunks: {
+          cacheGroups: {
+            commons: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              chunks: 'all',
+            },
+          },
+        },
       },
     };
   }
@@ -62,7 +71,7 @@ module.exports = (env) => {
     output: {
       path: Path.resolve(__dirname, 'dev'),
       publicPath: Path.resolve(__dirname, 'dev'),
-      filename: 'index.js',
+      filename: '[name].bundle.js',
     },
     devtool: 'inline-source-map',
     devServer: {
