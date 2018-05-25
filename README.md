@@ -3,7 +3,9 @@ The Pet Bay
 
 ## Intro
 
-As assignment from SCC-0219 - Introduction to Web Development, at University of Sao Paulo, we're going to develop a web page for a ficticious Pet Shop. We named it to "The Pet Bay" and we're going to apply web technologies and concepts presented in our classes.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+As assignment from SCC-0219 - Introduction to Web Development, at University of Sao Paulo, we're developing a web page for a ficticious Pet Shop. We named it to "The Pet Bay" and we're going to apply web technologies and concepts presented in our classes.
 
 ## Usage
 
@@ -15,13 +17,13 @@ The following instructions are passed considering `yarn` is properly installed a
   *  `yarn install`
 
 * Run the development server with
-  * `yarn dev`
+  * `yarn start`
   * If any errors occur, **webpack** should warn you in the terminal
   * If everything is OK, the server can be accessed at
-    * `localhost:9000`
+    * `localhost:3000`
 
 * Generate a production build with
-  * `yarn build:prod`
+  * `yarn build`
   * Access the application by running
     * `yarn serve`
   * If everything is OK, the server can be accessed at

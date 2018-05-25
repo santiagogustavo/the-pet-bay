@@ -10,7 +10,6 @@
       }
     ],
     "styled-components",
-    "syntax-dynamic-import",
     "transform-class-properties",
     "transform-object-rest-spread",
     "transform-react-jsx"
