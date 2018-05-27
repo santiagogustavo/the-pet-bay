@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container, LogoText, Img, UserArea, FaIcon } from './styles';
+import { Container, LogoText, UserArea, FaIcon } from './styles';
+import { NavbarImg as Img } from '../styles';
+import UserDropdown from '../UserDropdown';
 import Logo from '../../imgs/logo.png';
-import User from '../../imgs/user.png';
 
 const Navbar = () => (
   <Container>
@@ -11,7 +12,7 @@ const Navbar = () => (
     </LogoText>
     <UserArea>
       <FaIcon className="fas fa-paw" style={{ marginRight: 20 }} />
-      <Img src={User} />
+      <UserDropdown />
     </UserArea>
   </Container>
 );

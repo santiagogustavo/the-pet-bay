@@ -47,13 +47,6 @@ export const LogoText = styled(Link)`
   `}
 `;
 
-export const Img = styled.img`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-`;
-
 export const UserArea = styled.div`
   display: none;
 
