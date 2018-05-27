@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link as RouteLink } from 'react-router-dom';
 
 export const Container = styled.div`
@@ -16,7 +16,7 @@ export const Menu = styled.div`
   max-width: 300px;
 `;
 
-export const NavLink = styled(RouteLink)`
+const Item = css`
   position: relative;
   padding: 8px 25px;
   cursor: pointer;
@@ -43,4 +43,12 @@ export const NavLink = styled(RouteLink)`
     width: 20px;
     margin-right: 10px;
   }
+`;
+
+export const NavLink = styled(RouteLink)`
+  ${Item}
+`;
+
+export const ButtonItem = styled.div`
+  ${Item}
 `;
