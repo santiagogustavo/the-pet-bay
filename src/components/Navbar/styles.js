@@ -65,3 +65,7 @@ export const FaIcon = styled.i`
   line-height: 40px;
   padding: 0px 5px;
 `;
+
+export const Name = styled.div`
+  margin-right: 20px;
+`;
