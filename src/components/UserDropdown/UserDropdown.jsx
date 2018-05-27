@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import User from 'assets/imgs/user.png';
+
 import { Container, Menu, NavLink, ButtonItem } from './styles';
 import { NavbarImg as Img } from '../styles';
 
 import ClickOutside from '../ClickOutside';
 import Dropdown from '../Dropdown';
-import User from '../../imgs/user.png';
 
 class UserDropdown extends React.Component {
   constructor(props) {

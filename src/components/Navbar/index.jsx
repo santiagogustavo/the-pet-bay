@@ -1,8 +1,10 @@
 import React from 'react';
+
+import Logo from 'assets/imgs/logo.png';
+
 import { Container, LogoText, UserArea, FaIcon } from './styles';
 import { NavbarImg as Img } from '../styles';
 import UserDropdown from '../UserDropdown';
-import Logo from '../../imgs/logo.png';
 
 const Navbar = () => (
   <Container>

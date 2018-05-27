@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import 'vendor/fontawesome/css/fontawesome-all.css';
-import 'fonts/cream/stylesheet.css';
-import 'fonts/roboto/stylesheet.css';
-import 'css/main.css';
+import 'assets/vendor/fontawesome/css/fontawesome-all.css';
+import 'assets/fonts/cream/stylesheet.css';
+import 'assets/fonts/roboto/stylesheet.css';
+import 'assets/css/main.css';
 
 import Index from './routes';
 import Hello from './routes/hello';
