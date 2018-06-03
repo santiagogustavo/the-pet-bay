@@ -10,8 +10,6 @@ export const Container = styled.header`
   background: #3498db;
   color: #fafafa;
   display: flex;
-  align-content: center;
-  justify-content: center;
   box-shadow: #00000055 0px 0px 5px;
   
   ${media.medium`
@@ -27,6 +25,7 @@ export const LogoText = styled(Link)`
   transition: transform 0.2s ease;
   display: flex;
   align-items: center;
+  margin-left: -20px;
 
   &:hover {
     transform: scale(1.05);
@@ -55,6 +54,18 @@ export const UserArea = styled.div`
     margin-right: 17.5%;
     display: flex;
     align-items: center;
+  `}
+`;
+
+export const SidebarArea = styled.div`
+  float: left;
+  margin-left: 7.5%;
+  display: flex;
+  align-items: center;
+  flex-basis: calc(50% - 7.5%);
+
+  ${media.medium`
+    display: none;
   `}
 `;
 
