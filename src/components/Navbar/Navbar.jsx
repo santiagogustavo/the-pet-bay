@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import Logo from 'assets/imgs/logo.png';
 
 import {
-  Container, LogoText, UserArea, SidebarArea, FaIcon, Name,
+  Container, LogoText, UserArea, UserContentArea, SidebarArea, Name,
 } from './styles';
 import { NavbarImg as Img } from '../styles';
 import UserDropdown from '../UserDropdown';
+import UserNotifications from '../UserNotifications';
 import UserSidebar from '../UserSidebar';
+import DottedIcon from '../DottedIcon';
 
 const Navbar = ({ signed, name }) => (
   <Container>
@@ -23,7 +25,10 @@ const Navbar = ({ signed, name }) => (
       { signed && <Name>Olá, {name}!</Name> }
       <UserDropdown />
       { signed &&
-        <FaIcon className="fas fa-paw" style={{ marginLeft: 20 }} />
+        <UserContentArea>
+          <UserNotifications />
+          <DottedIcon icon="fas fa-shopping-cart" count={3} style={{ marginLeft: 20 }} />
+        </UserContentArea>
       }
     </UserArea>
   </Container>

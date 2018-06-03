@@ -37,5 +37,7 @@ export const Wrapper = styled.nav`
     font-size: 16px;
     font-weight: bold;
     border-bottom: #fafafa solid 2px;
+    user-select: none;
+    cursor: initial;
   }
 `;

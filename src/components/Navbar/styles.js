@@ -57,6 +57,13 @@ export const UserArea = styled.div`
   `}
 `;
 
+export const UserContentArea = styled.div`
+  position: relative;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+`;
+
 export const SidebarArea = styled.div`
   float: left;
   margin-left: 7.5%;
