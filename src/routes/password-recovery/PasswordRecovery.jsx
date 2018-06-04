@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from 'material-ui';
+
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
-import { Content } from 'components/styles';
-
 import {
-  StyledH2, InfoText, Form, ButtonContainer, Primary, PrimaryLink,
-} from './styles';
+  ButtonContainer, Content, Form, InfoText, Primary, StyledH2,
+} from 'components/styles';
+
+import { PrimaryLink } from './styles';
 
 const PasswordRecovery = ({
   email,

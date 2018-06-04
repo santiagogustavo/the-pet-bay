@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from 'material-ui';
+
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
-import { Content } from 'components/styles';
+import { ButtonContainer, Content, Form, Primary, StyledH2 } from 'components/styles';
 
-import { StyledH2, Form, ButtonContainer, Primary, Danger } from './styles';
+import { Danger } from './styles';
 
 const SignIn = ({
   email,

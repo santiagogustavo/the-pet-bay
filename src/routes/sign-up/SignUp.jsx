@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from 'material-ui';
+
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
-import { Content } from 'components/styles';
-
-import { StyledH2, Form, ButtonContainer, Primary } from './styles';
+import {
+  ButtonContainer, Content, Form, InfoText, Primary, StyledH2,
+} from 'components/styles';
 
 const SignUp = ({
   name,
@@ -25,6 +26,10 @@ const SignUp = ({
     <Navbar />
     <Content>
       <StyledH2>Criar Conta</StyledH2>
+      <InfoText>
+        Precisamos de alguns dados iniciais para criar sua conta <br />
+        Digite-os abaixo, você poderá editar e acrescentar mais informações depois!
+      </InfoText>
       <Form>
         <TextField
           fullWidth
