@@ -53,10 +53,10 @@ class UserDropdown extends React.Component {
               </Menu>
             :
               <Menu>
-                <ButtonItem onClick={this.props.signIn}>
+                <NavLink to="/sign-in">
                   <i className="fas fa-sign-in-alt" />
                   Entrar
-                </ButtonItem>
+                </NavLink>
                 <NavLink to="/sign-up">
                   <i className="fas fas fa-user-plus" />
                   Criar conta
@@ -71,7 +71,6 @@ class UserDropdown extends React.Component {
 
 UserDropdown.propTypes = {
   signed: PropTypes.bool,
-  signIn: PropTypes.func.isRequired,
   signOut: PropTypes.func.isRequired,
 };
 

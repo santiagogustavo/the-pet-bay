@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signIn, signOut } from 'actions/user';
+import { signOut } from 'actions/user';
 import UserDropdown from './UserDropdown';
 
 const mapStateToProps = state => ({
@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  signIn, signOut,
+  signOut,
 };
 
 export default connect(
