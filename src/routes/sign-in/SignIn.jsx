@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from 'material-ui';
+import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import { Content } from 'components/styles';
 
@@ -10,6 +11,7 @@ const SignIn = ({
   username,
   password,
   errors,
+  isFetching,
   history,
   changeUsername,
   changePassword,
@@ -38,12 +40,19 @@ const SignIn = ({
           errorText={errors.password}
         />
       </Form>
-      <ButtonContainer>
-        <Danger to="/password-recovery">ESQUECI MINHA SENHA</Danger>
-        <Primary onClick={() => submitForm(username, password, history)}>
-          ENTRAR
-        </Primary>
-      </ButtonContainer>
+      {
+        isFetching ?
+          <ButtonContainer>
+            <Loader style={{ margin: 'auto' }} />
+          </ButtonContainer>
+        :
+          <ButtonContainer>
+            <Danger to="/password-recovery">ESQUECI MINHA SENHA</Danger>
+            <Primary onClick={() => submitForm(username, password, history)}>
+              ENTRAR
+            </Primary>
+          </ButtonContainer>
+      }
     </Content>
   </div>
 );
@@ -52,6 +61,7 @@ SignIn.propTypes = {
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   errors: PropTypes.objectOf(PropTypes.string).isRequired,
+  isFetching: PropTypes.bool.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,

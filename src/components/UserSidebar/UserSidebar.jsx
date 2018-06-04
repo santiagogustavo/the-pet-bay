@@ -52,10 +52,10 @@ class UserSidebar extends React.Component {
               </Menu>
             :
               <Menu>
-                <ButtonItem onClick={this.props.signIn}>
+                <NavLink to="/sign-in">
                   <i className="fas fa-sign-in-alt" />
                   Entrar
-                </ButtonItem>
+                </NavLink>
                 <NavLink to="/sign-up">
                   <i className="fas fas fa-user-plus" />
                   Criar conta
@@ -70,7 +70,6 @@ class UserSidebar extends React.Component {
 
 UserSidebar.propTypes = {
   signed: PropTypes.bool,
-  signIn: PropTypes.func.isRequired,
   signOut: PropTypes.func.isRequired,
 };
 

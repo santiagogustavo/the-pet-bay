@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   username: state.signIn.username,
   password: state.signIn.password,
   errors: state.signIn.errors,
+  isFetching: state.signIn.isFetching,
 });
 
 const mapDispatchToProps = {

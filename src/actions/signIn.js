@@ -11,6 +11,10 @@ export const changePassword = event => ({
   payload: event.target.value,
 });
 
+export const toggleFetch = () => ({
+  type: 'SIGN_IN/TOGGLE_FETCH',
+});
+
 const validateForm = (username, password) => {
   const payload = {};
   if (username.length === 0) payload.username = messages.empty;
@@ -26,8 +30,5 @@ export const submitForm = (username, password, history) => (dispatch) => {
       payload,
     });
   }
-  dispatch({
-    type: 'SIGN_IN/SUBMIT_FORM/SUCCESSFULL_SUBMIT',
-  });
   return dispatch(signIn(username, password, history));
 };

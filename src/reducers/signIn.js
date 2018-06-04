@@ -4,6 +4,7 @@ const initialState = Immutable({
   username: '',
   password: '',
   errors: {},
+  isFetching: false,
 });
 
 export default (state = initialState, action) => {
@@ -12,6 +13,8 @@ export default (state = initialState, action) => {
       return state.setIn(['username'], action.payload).setIn(['errors', 'username'], '');
     case 'SIGN_IN/CHANGE_PASSWORD':
       return state.setIn(['password'], action.payload).setIn(['errors', 'password'], '');
+    case 'SIGN_IN/TOGGLE_FETCH':
+      return state.setIn(['isFetching'], !state.isFetching);
     case 'SIGN_IN/SUBMIT_FORM/SUCCESSFULL_SUBMIT':
       return initialState;
     case 'SIGN_IN/SUBMIT_FORM/FAILED_SUBMIT':
