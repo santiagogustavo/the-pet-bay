@@ -21,6 +21,7 @@ const validateForm = (email, password) => {
   const payload = {};
   if (email.length === 0) payload.email = messages.empty;
   if (!validateEmail(email)) payload.email = messages.invalid;
+  if (password.length < 6) payload.password = messages.tooSmall;
   if (password.length === 0) payload.password = messages.empty;
   return payload;
 };
