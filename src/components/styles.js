@@ -58,10 +58,17 @@ export const ButtonContainer = styled.div`
   `}
 `;
 
+export const Page = styled.div`
+  display: block;
+  position: relative;
+  min-height: 100vh;
+`;
+
 export const Content = styled.main`
   padding: 15px;
   padding-left: 10%;
   padding-right: 10%;
+  padding-bottom: 100px;
 
   ${media.medium`
     padding-left: 15%;

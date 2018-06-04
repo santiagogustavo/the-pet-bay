@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from 'material-ui';
 
+import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
-import { ButtonContainer, Content, Form, Primary, StyledH2 } from 'components/styles';
+import {
+  ButtonContainer, Content, Form, Page, Primary, StyledH2,
+} from 'components/styles';
 
 import { Danger } from './styles';
 
@@ -18,7 +21,7 @@ const SignIn = ({
   changePassword,
   submitForm,
 }) => (
-  <div>
+  <Page>
     <Navbar />
     <Content>
       <StyledH2>Entrar</StyledH2>
@@ -55,7 +58,8 @@ const SignIn = ({
           </ButtonContainer>
       }
     </Content>
-  </div>
+    <Footer />
+  </Page>
 );
 
 SignIn.propTypes = {

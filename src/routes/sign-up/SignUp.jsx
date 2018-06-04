@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from 'material-ui';
 
+import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import {
-  ButtonContainer, Content, Form, InfoText, Primary, StyledH2,
+  ButtonContainer, Content, Form, InfoText, Page, Primary, StyledH2,
 } from 'components/styles';
 
 const SignUp = ({
@@ -22,7 +23,7 @@ const SignUp = ({
   changePasswordConfirmation,
   submitForm,
 }) => (
-  <div>
+  <Page>
     <Navbar />
     <Content>
       <StyledH2>Criar Conta</StyledH2>
@@ -79,7 +80,8 @@ const SignUp = ({
           </ButtonContainer>
       }
     </Content>
-  </div>
+    <Footer />
+  </Page>
 );
 
 SignUp.propTypes = {

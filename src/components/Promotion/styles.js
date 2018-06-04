@@ -50,13 +50,13 @@ export const Container = styled.div`
   flex-direction: column;
   width: fit-content;
   cursor: pointer;
-  transition: all 0.2s ease;  
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   ${media.medium`
     flex-direction: row;
-    
-    &:hover {
-      transform: scale(1.05);
-    }
   `}
 `;

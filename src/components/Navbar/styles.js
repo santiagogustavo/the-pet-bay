@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom';
 import media from 'components/Utils/media';
 
 export const Container = styled.header`
+  position: sticky;
+  z-index: 1000;
   top: 0;
   width: 100%;
-  height: 75px;
+  height: ${props => (props.shrinked ? 55 : 75)}px;
   background: #3498db;
   color: #fafafa;
   display: flex;
   box-shadow: #00000055 0px 0px 5px;
+  transition: all 0.2s ease;
   
   ${media.medium`
     align-content: flex-start;

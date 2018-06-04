@@ -10,6 +10,7 @@ import PetHotelBanner from 'assets/imgs/pet_hotel_banner.jpg';
 import VetDog from 'assets/imgs/vet_dog.jpg';
 import WashDogs from 'assets/imgs/wash_dogs.jpg';
 
+import Footer from 'components/Footer';
 import Navbar from 'components/Navbar';
 import Promotion from 'components/Promotion';
 import SeparatorTitle from 'components/SeparatorTitle';
@@ -17,13 +18,14 @@ import {
   Content,
   LandingLogo,
   LandingLogoImg,
+  Page,
   PromotionsContainer,
   StyledH4,
 } from 'components/styles';
 import { PromotionsBanner } from '../components/styles';
 
 const Index = () => (
-  <div>
+  <Page>
     <Navbar />
     <Content>
       <LandingLogo>
@@ -98,7 +100,8 @@ const Index = () => (
         <PromotionsBanner src={PetHotelBanner} />
       </RouteLink>
     </Content>
-  </div>
+    <Footer />
+  </Page>
 );
 
 export default Index;
