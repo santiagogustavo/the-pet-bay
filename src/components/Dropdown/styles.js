@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin-top: -10px;
   position: absolute;
   z-index: 1000;
-  top: 59.5px;
+  top: ${props => (props.shrinked ? 49.5 : 59.5)}px;
   right: 0;
   transition: all 0.2s ease;
   text-overflow: ellipsis;

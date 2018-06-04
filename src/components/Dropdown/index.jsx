@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Wrapper } from './styles';
 
-const Dropdown = ({ children, open, title }) => (
-  <Container open={open}>
+const Dropdown = ({
+  children, open, title, shrinked,
+}) => (
+  <Container open={open} shrinked={shrinked}>
     <Wrapper>
       {
         title ?
@@ -21,11 +23,13 @@ Dropdown.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
   ]).isRequired,
   open: PropTypes.bool,
+  shrinked: PropTypes.bool,
   title: PropTypes.string,
 };
 
 Dropdown.defaultProps = {
   open: false,
+  shrinked: false,
   title: null,
 };
 

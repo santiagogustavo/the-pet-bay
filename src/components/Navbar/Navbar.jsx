@@ -50,10 +50,10 @@ class Navbar extends React.Component {
         </LogoText>
         <UserArea>
           {signed && <Name>Olá, {name}!</Name>}
-          <UserDropdown />
+          <UserDropdown shrinked={this.state.shrinked} />
           {signed &&
             <UserContentArea>
-              <UserNotifications />
+              <UserNotifications shrinked={this.state.shrinked} />
               <DottedIcon icon="fas fa-shopping-cart" count={3} style={{ marginLeft: 20 }} />
             </UserContentArea>
           }

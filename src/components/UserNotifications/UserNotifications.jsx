@@ -29,7 +29,7 @@ class UserDropdown extends React.Component {
     <ClickOutside onClickOutside={this.handleOnClickOutside}>
       <Container style={{ marginLeft: 20 }} >
         <DottedIcon icon="fas fa-bell" count={1} onClick={this.handleOnClick} />
-        <Dropdown open={this.state.open} title="Notificações">
+        <Dropdown open={this.state.open} title="Notificações" shrinked={this.props.shrinked}>
           <Menu>
             {this.props.notifications.map((item, index) => (
               <ButtonItem key={_.uniqueId(index)}>
@@ -45,12 +45,14 @@ class UserDropdown extends React.Component {
 }
 
 UserDropdown.propTypes = {
+  shrinked: PropTypes.bool,
   notifications: PropTypes.arrayOf(PropTypes.shape({
     content: PropTypes.string,
   })),
 };
 
 UserDropdown.defaultProps = {
+  shrinked: false,
   notifications: [
     {
       content: ' Jonas, o gato, tem uma consulta agendada para o dia 10/04/2018!',
