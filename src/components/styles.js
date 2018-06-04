@@ -10,8 +10,8 @@ export const NavbarImg = styled.img`
 
 export const Content = styled.main`
   padding: 15px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 
   ${media.medium`
     padding-left: 15%;

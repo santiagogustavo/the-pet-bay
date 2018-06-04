@@ -8,12 +8,12 @@ import { Content } from 'components/styles';
 import { StyledH2, Form, ButtonContainer, Primary, Danger } from './styles';
 
 const SignIn = ({
-  username,
+  email,
   password,
   errors,
   isFetching,
   history,
-  changeUsername,
+  changeEmail,
   changePassword,
   submitForm,
 }) => (
@@ -24,11 +24,11 @@ const SignIn = ({
       <Form>
         <TextField
           fullWidth
-          id="sign-in-username"
-          floatingLabelText="Usuário"
-          value={username}
-          onChange={changeUsername}
-          errorText={errors.username}
+          id="sign-in-email"
+          floatingLabelText="Email"
+          value={email}
+          onChange={changeEmail}
+          errorText={errors.email}
         />
         <TextField
           fullWidth
@@ -48,7 +48,7 @@ const SignIn = ({
         :
           <ButtonContainer>
             <Danger to="/password-recovery">ESQUECI MINHA SENHA</Danger>
-            <Primary onClick={() => submitForm(username, password, history)}>
+            <Primary onClick={() => submitForm(email, password, history)}>
               ENTRAR
             </Primary>
           </ButtonContainer>
@@ -58,14 +58,14 @@ const SignIn = ({
 );
 
 SignIn.propTypes = {
-  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   errors: PropTypes.objectOf(PropTypes.string).isRequired,
   isFetching: PropTypes.bool.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
-  changeUsername: PropTypes.func.isRequired,
+  changeEmail: PropTypes.func.isRequired,
   changePassword: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
 };

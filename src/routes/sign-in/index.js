@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 
-import { changeUsername, changePassword, submitForm } from 'actions/signIn';
+import { changeEmail, changePassword, submitForm } from 'actions/signIn';
 import SignIn from './SignIn';
 
 const mapStateToProps = state => ({
-  username: state.signIn.username,
+  email: state.signIn.email,
   password: state.signIn.password,
   errors: state.signIn.errors,
   isFetching: state.signIn.isFetching,
 });
 
 const mapDispatchToProps = {
-  changeUsername, changePassword, submitForm,
+  changeEmail, changePassword, submitForm,
 };
 
 export default connect(
