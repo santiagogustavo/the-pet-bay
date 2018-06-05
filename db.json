@@ -15,5 +15,13 @@
   ],
   "password-recovery": {
     "email": "asd@asd.com"
-  }
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Arranhador para gatos",
+      "description": "Mega fucking blaster arranhador with lazors",
+      "quantity": 20
+    }
+  ]
 }
