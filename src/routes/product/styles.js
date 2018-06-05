@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { Link as RouteLink } from 'react-router-dom';
+
 import { ButtonPrimary, ButtonSuccess } from 'components/Buttons';
 import media from 'components/Utils/media';
+import { randomColor } from 'components/Utils/colors';
 
 export default styled.h1`
   font-size: 20px;
@@ -76,7 +78,7 @@ export const PriceTag = styled.div`
 export const Separator = styled.div`
   width: 100px;
   height: 3px;
-  background: #6A1B9A;
+  background: ${randomColor()};
   margin: 25px;
 
   ${media.medium`

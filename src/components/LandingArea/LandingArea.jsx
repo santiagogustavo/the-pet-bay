@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Logo from 'assets/imgs/logo.png';
+// import PirateCat from 'assets/imgs/pirate_cat.jpg';
+
 import LandingBlocks from 'components/LandingBlocks';
 import SeparatorTitle from 'components/SeparatorTitle';
 import { LandingLogo, LandingLogoImg, StyledH4 } from 'components/styles';
