@@ -7,12 +7,11 @@ import Placeholder from 'assets/imgs/placeholder.jpg';
 import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
-import { Content, Page } from 'components/styles';
+import { Centralized, Content, Page } from 'components/styles';
 
 import {
   BuyButton,
   BuyContainer,
-  Centralized,
   Container,
   Description,
   Img,

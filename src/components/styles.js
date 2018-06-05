@@ -34,6 +34,7 @@ export const LandingLogoImg = styled.img`
   width: 115px;
   height: 115px;
   border-radius: 50%;
+  object-fit: cover;
 
   ${media.medium`
     width: 150px;
@@ -62,6 +63,14 @@ export const Page = styled.div`
   display: block;
   position: relative;
   min-height: 100vh;
+`;
+
+export const Centralized = styled.div`
+  width: 100%;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Content = styled.main`

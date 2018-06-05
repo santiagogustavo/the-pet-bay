@@ -14,6 +14,7 @@ import 'assets/css/main.css';
 
 import Index from './routes';
 import Route404 from './routes/404';
+import Route500 from './routes/500';
 import Hello from './routes/hello';
 import PasswordRecovery from './routes/password-recovery';
 import Product from './routes/product';
@@ -32,6 +33,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Index} />
             <Route path="/404" component={Route404} />
+            <Route path="/500" component={Route500} />
             <Route path="/hello" component={Hello} />
             <Route path="/password-recovery" component={PasswordRecovery} />
             <Route exact path="/shop" component={Shop} />

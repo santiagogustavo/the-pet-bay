@@ -29,6 +29,8 @@ export const LogoText = styled(Link)`
   display: flex;
   align-items: center;
   margin-left: -20px;
+  white-space: nowrap;
+  overflow: hidden;
 
   &:hover {
     transform: scale(1.05);
@@ -42,6 +44,9 @@ export const LogoText = styled(Link)`
   ${media.medium`
     margin: auto;
     margin-left: 17.5%;
+  `}
+
+  ${media.large`
     & > div {
       display: block;
       margin-left: 20px;
@@ -63,8 +68,8 @@ export const UserArea = styled.div`
 export const UserContentArea = styled.div`
   position: relative;
   display: flex;
-  align-content: center;
-  flex-direction: row;
+  align-content: baseline;
+  height: 44px;
 `;
 
 export const SidebarArea = styled.div`
@@ -89,6 +94,8 @@ export const FaIcon = styled.i`
 
 export const Name = styled.div`
   margin-right: 20px;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export const RouterLink = styled(Link)`

@@ -9,14 +9,6 @@ export default styled.h1`
   color: #001122;
 `;
 
-export const Centralized = styled.div`
-  width: 100%;
-  height: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const Container = styled.div`
   display: flex;
   align-items: center;

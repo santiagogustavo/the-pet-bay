@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import media from 'components/Utils/media';
 
@@ -44,13 +45,15 @@ export const PriceTag = styled.div`
   font-weight: bold;
 `;
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   display: flex;
   align-items: center;
   flex-direction: column;
   width: fit-content;
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
+  color: #212121;
 
   &:hover {
     transform: scale(1.05);

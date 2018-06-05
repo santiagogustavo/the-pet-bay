@@ -60,6 +60,7 @@ const Index = () => (
             priceTag="R$199,00"
             color="#c62828"
             image={CatScratcher}
+            to="/shop/1"
           />
         </div>
         <div>
@@ -69,6 +70,7 @@ const Index = () => (
             priceTag="R$998,99"
             color="#F9A825"
             image={CatSandbox}
+            to="/shop/2"
           />
         </div>
         <div>
@@ -78,6 +80,7 @@ const Index = () => (
             priceTag="R$-0,01"
             color="#6A1B9A"
             image={CatHolyWater}
+            to="/shop/3"
           />
         </div>
       </PromotionsContainer>
