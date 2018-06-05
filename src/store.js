@@ -16,13 +16,12 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, Reducers);
 
 /* eslint-disable no-underscore-dangle */
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+/* eslint-enable */
+
 export const Store = createStore(
   persistedReducer, /* preloadedState, */
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  ),
+  composeEnhancers(applyMiddleware(thunk)),
 );
-/* eslint-enable */
 
 export const Persistor = persistStore(Store);
