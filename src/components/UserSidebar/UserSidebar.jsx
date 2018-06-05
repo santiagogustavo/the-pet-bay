@@ -25,6 +25,11 @@ class UserSidebar extends React.Component {
     this.setState({ open: false });
   }
 
+  handleSignOut = () => {
+    this.props.signOut();
+    this.handleOnClickOutside();
+  }
+
   render = () => (
     <ClickOutside onClickOutside={this.handleOnClickOutside}>
       <Container>
@@ -45,7 +50,7 @@ class UserSidebar extends React.Component {
                   <i className="fas fa-user" />
                   Minha Conta
                 </NavLink>
-                <ButtonItem onClick={this.props.signOut}>
+                <ButtonItem onClick={this.handleSignOut}>
                   <i className="fas fa-sign-out-alt" />
                   Sair
                 </ButtonItem>

@@ -46,7 +46,7 @@ export const submitForm = (email, password, history) => (dispatch) => {
       dispatch({
         type: 'SIGN_IN/SUBMIT_FORM/SUCCESSFULL_SUBMIT',
       });
-      history.push('/');
+      history.goBack();
     } else {
       dispatch({
         type: 'SIGN_IN/SUBMIT_FORM/FAILED_SUBMIT',

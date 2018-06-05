@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 import Logo from 'assets/imgs/logo.png';
 
 import {
-  Container, LogoText, UserArea, UserContentArea, SidebarArea, Name,
+  Container,
+  LogoText,
+  Name,
+  RouterLink,
+  SidebarArea,
+  UserArea,
+  UserContentArea,
 } from './styles';
 import { NavbarImg as Img } from '../styles';
 import UserDropdown from '../UserDropdown';
@@ -54,7 +60,9 @@ class Navbar extends React.Component {
           {signed &&
             <UserContentArea>
               <UserNotifications shrinked={this.state.shrinked} />
-              <DottedIcon icon="fas fa-shopping-cart" count={3} style={{ marginLeft: 20 }} />
+              <RouterLink to="/shopping-cart">
+                <DottedIcon icon="fas fa-shopping-cart" count={3} style={{ marginLeft: 20 }} />
+              </RouterLink>
             </UserContentArea>
           }
         </UserArea>
