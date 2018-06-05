@@ -16,6 +16,7 @@ import Hello from './routes/hello';
 import PasswordRecovery from './routes/password-recovery';
 import SignIn from './routes/sign-in';
 import SignUp from './routes/sign-up';
+import MyPets from './routes/my-pets';
 import Store from './store';
 
 class App extends React.Component {
@@ -26,6 +27,7 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="content">
           <Route exact path="/" component={Index} />
+          <Route path="/my-pets" component={MyPets} />
           <Route path="/hello" component={Hello} />
           <Route path="/password-recovery" component={PasswordRecovery} />
           <Route path="/sign-in" component={SignIn} />
