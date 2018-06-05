@@ -4,23 +4,20 @@ import { Link as RouteLink } from 'react-router-dom';
 import CatHolyWater from 'assets/imgs/cat_holy_water.jpg';
 import CatScratcher from 'assets/imgs/cat_scratcher.jpg';
 import CatSandbox from 'assets/imgs/cat_sandbox.jpg';
-import Logo from 'assets/imgs/logo.png';
 import PetHotelBanner from 'assets/imgs/pet_hotel_banner.jpg';
 // import PirateCat from 'assets/imgs/pirate_cat.jpg';
 import VetDog from 'assets/imgs/vet_dog.jpg';
 import WashDogs from 'assets/imgs/wash_dogs.jpg';
 
 import Footer from 'components/Footer';
+import LandingArea from 'components/LandingArea';
 import Navbar from 'components/Navbar';
 import Promotion from 'components/Promotion';
 import SeparatorTitle from 'components/SeparatorTitle';
 import {
   Content,
-  LandingLogo,
-  LandingLogoImg,
   Page,
   PromotionsContainer,
-  StyledH4,
 } from 'components/styles';
 import { PromotionsBanner } from '../components/styles';
 
@@ -28,15 +25,7 @@ const Index = () => (
   <Page>
     <Navbar />
     <Content>
-      <LandingLogo>
-        <LandingLogoImg src={Logo} />
-        the pet bay
-      </LandingLogo>
-      <StyledH4>
-        Bem-vindo à baía dos animais <br />
-        Encontre os melhores produtos e serviços para seu marujinho! <br />
-        Cadastre, compre ou agende um horário com nossos veterinários :)
-      </StyledH4>
+      <LandingArea />
       <SeparatorTitle
         label="Serviços"
         text="Marque um check-up!"
