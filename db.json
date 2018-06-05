@@ -15,5 +15,15 @@
   ],
   "password-recovery": {
     "email": "asd@asd.com"
-  }
+  },
+  "pets": [
+    {
+      "id": 1,
+      "name": "Joana",
+      "race": "Golden Retriever",
+      "type": "CAT",
+      "size": "MEDIUM",
+      "notes": "Alergico a pelo"
+    }
+  ]
 }
