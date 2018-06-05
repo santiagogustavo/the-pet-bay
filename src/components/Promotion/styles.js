@@ -59,6 +59,9 @@ export const Container = styled(Link)`
     transform: scale(1.05);
   }
 
+  &:focus { outline: none; }
+  &::-moz-focus-inner { border: 0; }
+
   ${media.medium`
     flex-direction: row;
   `}
