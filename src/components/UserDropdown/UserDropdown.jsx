@@ -28,7 +28,7 @@ class UserDropdown extends React.Component {
 
   handleSignOut = () => {
     this.props.signOut();
-    window.location.reload(false);
+    this.handleOnClickOutside();
   }
 
   render = () => (

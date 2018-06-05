@@ -90,3 +90,9 @@ export const FaIcon = styled.i`
 export const Name = styled.div`
   margin-right: 20px;
 `;
+
+export const RouterLink = styled(Link)`
+  color: #FAFAFA;
+  fill: #FAFAFA;
+  user-select: none;
+`;

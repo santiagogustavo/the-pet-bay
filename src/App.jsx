@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -29,7 +29,7 @@ class App extends React.Component {
     <Provider store={Store}>
       <PersistGate loading={null} persistor={Persistor}>
         <BrowserRouter>
-          <div className="content">
+          <Switch>
             <Route exact path="/" component={Index} />
             <Route path="/404" component={Route404} />
             <Route path="/hello" component={Hello} />
@@ -38,7 +38,8 @@ class App extends React.Component {
             <Route path="/shop/:id" component={Product} />
             <Route path="/sign-in" component={SignIn} />
             <Route path="/sign-up" component={SignUp} />
-          </div>
+            <Redirect to="/404" />
+          </Switch>
         </BrowserRouter>
       </PersistGate>
     </Provider>

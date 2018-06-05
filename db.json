@@ -20,8 +20,23 @@
     {
       "id": 1,
       "name": "Arranhador para gatos",
-      "description": "Mega fucking blaster arranhador with lazors",
+      "description": "Arranhador multiuso para felinos e DJs",
+      "price": 199.00,
       "quantity": 20
+    },
+    {
+      "id": 2,
+      "name": "Banheiro para gatos",
+      "description": "Caixa de areia, ideal para cachorros e crianços",
+      "price": 998.99,
+      "quantity": 0
+    },
+    {
+      "id": 3,
+      "name": "Bebedouro para gato",
+      "description": "Bebedouro especializado para felinos",
+      "price": -0.01,
+      "quantity": 2
     }
   ]
 }
