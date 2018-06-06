@@ -17,15 +17,15 @@ The following instructions are passed considering `yarn` is properly installed a
   *  `yarn install`
 
 * Run the development server with
-  * `yarn start`
+  * `yarn start` or with Docker `docker run --rm -it -p 3000:3000 -p 4000:4000 -v "$(pwd):/app" -w /app node:8 npm start`
   * If any errors occur, **webpack** should warn you in the terminal
   * If everything is OK, the server can be accessed at
     * `localhost:3000`
 
 * Generate a production build with
-  * `yarn build`
+  * `yarn build` or with Docker `docker build -t the-pet-bay .`
   * Access the application by running
-    * `yarn serve`
+    * `yarn serve` or with Docker `docker run --rm -it -p 5000:5000 the-pet-bay`
   * If everything is OK, the server can be accessed at
     * `localhost:5000`
   * That results in a minified and chunk-splitted bundle, which can be accessed in a more simple and performatic way
