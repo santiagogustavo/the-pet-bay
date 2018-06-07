@@ -6,6 +6,7 @@ export const Container = styled.div`
   margin: auto;
   line-height: 40px;
   padding: 0px 5px;
+  &:focus { outline: none; }
 `;
 
 export const Dot = styled.div`
