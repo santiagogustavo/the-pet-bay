@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+export const changeCount = event => ({
+  type: 'PRODUCT/CHANGE_COUNT',
+  payload: Number(event.target.value),
+});
+
 export const toggleFetch = () => ({
   type: 'PRODUCT/TOGGLE_FETCH',
 });

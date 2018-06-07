@@ -9,7 +9,10 @@ export default (state = initialState, action) => {
     case 'SHOPPING_CART/ADD_ITEM':
       return state.merge({ items: state.items.concat(action.payload) });
     case 'SHOPPING_CART/REMOVE_ITEM':
-      return state.merge({ items: state.items.without(action.payload) });
+      return state.merge({
+        items: state.items.slice(0, action.payload)
+          .concat(state.items.slice(action.payload + 1, state.items.length)),
+      });
     default:
       return state;
   }

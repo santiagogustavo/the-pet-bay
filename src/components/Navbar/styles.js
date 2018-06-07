@@ -34,6 +34,7 @@ export const LogoText = styled(Link)`
   white-space: nowrap;
   overflow: hidden;
   flex-basis: 40px;
+  flex-grow: 0;
 
   &:hover {
     transform: scale(1.05);
