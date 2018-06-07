@@ -41,6 +41,8 @@ export const LogoText = styled(Link)`
     margin: 0;
   }
 
+  &:focus { outline: none }
+
   ${media.medium`
     margin: auto;
     margin-left: 17.5%;

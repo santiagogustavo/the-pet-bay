@@ -74,7 +74,10 @@ const SignUp = ({
           </ButtonContainer>
         :
           <ButtonContainer>
-            <Primary onClick={() => submitForm(name, email, password, passwordConfirmation, history)}>
+            <Primary
+              tabIndex="0"
+              onClick={() => submitForm(name, email, password, passwordConfirmation, history)}
+            >
               CRIAR
             </Primary>
           </ButtonContainer>

@@ -51,8 +51,8 @@ const SignIn = ({
           </ButtonContainer>
         :
           <ButtonContainer>
-            <Danger to="/password-recovery">ESQUECI MINHA SENHA</Danger>
-            <Primary onClick={() => submitForm(email, password, history)}>
+            <Danger tabIndex="0" to="/password-recovery">ESQUECI MINHA SENHA</Danger>
+            <Primary tabIndex="0" onClick={() => submitForm(email, password, history)}>
               ENTRAR
             </Primary>
           </ButtonContainer>

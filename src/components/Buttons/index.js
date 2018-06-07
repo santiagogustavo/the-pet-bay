@@ -14,6 +14,14 @@ const Button = css`
   transition: all 0.1s ease;
   user-select: none;
   cursor: pointer;
+  &:hover, &:focus {
+    transform: translateY(-3px);
+    box-shadow: #00000055 0px 3px 0px;
+    outline: none;
+  }
+  &:active {
+    transform: none;    
+  }
 `;
 
 export const ButtonPrimary = css`

@@ -26,7 +26,7 @@ const PasswordRecovery = ({
     </ButtonContainer>
     :
     <ButtonContainer>
-      <Primary onClick={() => submitForm(email, history)}>
+      <Primary tabIndex="0" onClick={() => submitForm(email, history)}>
         ENVIAR
       </Primary>
     </ButtonContainer>
@@ -45,7 +45,7 @@ const PasswordRecovery = ({
                 Enquanto isso, clique no botão abaixo para voltar à página inicial
               </InfoText>
               <ButtonContainer>
-                <PrimaryLink to="/">
+                <PrimaryLink tabIndex="0" to="/">
                   VOLTAR
                 </PrimaryLink>
               </ButtonContainer>

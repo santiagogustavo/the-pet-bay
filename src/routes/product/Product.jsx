@@ -30,7 +30,7 @@ class Product extends React.Component {
   renderBuyContainer = () => {
     if (!this.props.signed) {
       return (
-        <SignInButton to="/sign-in">
+        <SignInButton tabIndex="0" to="/sign-in">
           <i className="fas fa-sign-in-alt" />
           Entre para comprar
         </SignInButton>
