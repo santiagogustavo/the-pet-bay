@@ -2,9 +2,9 @@ import React from 'react';
 
 import Footer from 'components/Footer';
 import Navbar from 'components/Navbar';
+import { Content, Page } from 'components/styles';
 
 import StyledH1 from './styles';
-import { Content, Page } from '../../components/styles';
 
 const Hello = () => (
   <Page>
