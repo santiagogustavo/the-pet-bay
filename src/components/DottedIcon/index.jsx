@@ -5,7 +5,11 @@ import { Container, Dot } from './styles';
 const DottedIcon = ({ icon, count, ...props }) => (
   <Container {...props}>
     <i className={icon}>
-      <Dot>{count > 9 ? '9+' : count}</Dot>
+      {
+        count > 0 ?
+          <Dot>{count > 9 ? '9+' : count}</Dot>
+        : null
+      }
     </i>
   </Container>
 );

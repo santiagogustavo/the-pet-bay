@@ -11,6 +11,7 @@ import {
   SidebarArea,
   UserArea,
   UserContentArea,
+  UserDropdownArea,
 } from './styles';
 import { NavbarImg as Img } from '../styles';
 import UserDropdown from '../UserDropdown';
@@ -44,7 +45,7 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const { signed, name } = this.props;
+    const { signed, name, shopping } = this.props;
     return (
       <Container shrinked={this.state.shrinked}>
         <SidebarArea>
@@ -55,13 +56,19 @@ class Navbar extends React.Component {
           <div>the pet bay</div>
         </LogoText>
         <UserArea>
-          {signed && <Name>Olá, {name}!</Name>}
-          <UserDropdown shrinked={this.state.shrinked} />
+          <UserDropdownArea>
+            {signed && <Name>Olá, {name}!</Name>}
+            <UserDropdown shrinked={this.state.shrinked} />
+          </UserDropdownArea>
           {signed &&
             <UserContentArea>
               <UserNotifications shrinked={this.state.shrinked} />
               <RouterLink to="/shopping-cart">
-                <DottedIcon icon="fas fa-shopping-cart" count={3} style={{ marginLeft: 20 }} />
+                <DottedIcon
+                  icon="fas fa-shopping-cart"
+                  count={shopping}
+                  style={{ marginLeft: 20 }}
+                />
               </RouterLink>
             </UserContentArea>
           }
@@ -74,11 +81,13 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
   signed: PropTypes.bool,
   name: PropTypes.string,
+  shopping: PropTypes.number,
 };
 
 Navbar.defaultProps = {
   signed: false,
   name: '',
+  shopping: 0,
 };
 
 export default Navbar;
