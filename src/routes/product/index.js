@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
-import { fetch } from 'actions/product';
+import { changeCount, fetch } from 'actions/product';
+import { addItem } from 'actions/shoppingCart';
 import Product from './Product';
 
 const mapStateToProps = state => ({
@@ -9,12 +10,13 @@ const mapStateToProps = state => ({
   description: state.product.description,
   price: state.product.price,
   quantity: state.product.quantity,
+  count: state.product.count,
   isFetching: state.product.isFetching,
   signed: state.user.signed,
 });
 
 const mapDispatchToProps = {
-  fetch,
+  addItem, changeCount, fetch,
 };
 
 export default connect(

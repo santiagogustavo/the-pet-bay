@@ -55,10 +55,21 @@ class Product extends React.Component {
             fullWidth
             min={0}
             max={this.props.quantity}
+            onChange={this.props.changeCount}
+            value={this.props.count}
             type="number"
           />
         </div>
-        <BuyButton>
+        <BuyButton
+          onClick={() =>
+            this.props.addItem({
+              id: this.props.id,
+              count: this.props.count,
+              name: this.props.name,
+              price: this.props.price,
+            })
+          }
+        >
           <i className="fas fa-plus" />
           Comprar
         </BuyButton>
@@ -106,21 +117,24 @@ class Product extends React.Component {
 
 Product.propTypes = {
   description: PropTypes.string.isRequired,
+  addItem: PropTypes.func.isRequired,
   fetch: PropTypes.func.isRequired,
+  changeCount: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
-  id: PropTypes.number.isRequired,
-  isFetching: PropTypes.bool.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
   signed: PropTypes.bool.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 export default Product;

@@ -10,7 +10,7 @@ const persistConfig = {
   storage,
   stateReconciler: seamlessImmutableReconciler,
   transforms: [seamlessImmutableTransformer],
-  whitelist: ['user'],
+  whitelist: ['user', 'shoppingCart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, Reducers);

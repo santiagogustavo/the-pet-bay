@@ -19,6 +19,7 @@ import Hello from './routes/hello';
 import PasswordRecovery from './routes/password-recovery';
 import Product from './routes/product';
 import Shop from './routes/shop';
+import ShoppingCart from './routes/shopping-cart';
 import SignIn from './routes/sign-in';
 import SignUp from './routes/sign-up';
 import { Store, Persistor } from './store';
@@ -38,6 +39,7 @@ class App extends React.Component {
             <Route path="/password-recovery" component={PasswordRecovery} />
             <Route exact path="/shop" component={Shop} />
             <Route path="/shop/:id" component={Product} />
+            <Route path="/shopping-cart" component={ShoppingCart} />
             <Route path="/sign-in" component={SignIn} />
             <Route path="/sign-up" component={SignUp} />
             <Redirect to="/404" />

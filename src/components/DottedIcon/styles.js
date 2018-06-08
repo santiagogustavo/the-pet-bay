@@ -6,6 +6,10 @@ export const Container = styled.div`
   margin: auto;
   line-height: 40px;
   padding: 0px 5px;
+  transition: all 0.2s ease;
+  
+  &:focus { outline: none; }
+  &:hover { transform: scale(1.1); }
 `;
 
 export const Dot = styled.div`

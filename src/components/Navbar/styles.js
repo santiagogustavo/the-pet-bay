@@ -14,6 +14,9 @@ export const Container = styled.header`
   display: flex;
   box-shadow: #00000055 0px 0px 5px;
   transition: all 0.2s ease;
+  & > * {
+    flex: 1;
+  }
   
   ${media.medium`
     align-content: flex-start;
@@ -25,12 +28,13 @@ export const LogoText = styled(Link)`
   font-size: 25px;
   color: white;
   text-decoration: none;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  margin-left: -20px;
   white-space: nowrap;
   overflow: hidden;
+  flex-basis: 40px;
+  flex-grow: 0;
 
   &:hover {
     transform: scale(1.05);
@@ -40,12 +44,15 @@ export const LogoText = styled(Link)`
     display: none;
     margin: 0;
   }
-
-  &:focus { outline: none }
+  
+  & > * {
+    &:focus { outline: none }
+  }
 
   ${media.medium`
     margin: auto;
     margin-left: 17.5%;
+    flex-basis: auto;
   `}
 
   ${media.large`
@@ -57,13 +64,15 @@ export const LogoText = styled(Link)`
 `;
 
 export const UserArea = styled.div`
-  display: none;
+  display: flex;
+  float: right;
+  margin-right: 7.5%;
+  align-items: center;
+  justify-content: flex-end;
+  flex-basis: calc(50% - 7.5% - 20px);
 
   ${media.medium`
-    float: right;
     margin-right: 17.5%;
-    display: flex;
-    align-items: center;
   `}
 `;
 
@@ -74,12 +83,21 @@ export const UserContentArea = styled.div`
   height: 44px;
 `;
 
+export const UserDropdownArea = styled.div`
+  display: none;
+
+  ${media.medium`
+    display: flex;
+    align-items: center;
+  `}
+`;
+
 export const SidebarArea = styled.div`
   float: left;
   margin-left: 7.5%;
   display: flex;
   align-items: center;
-  flex-basis: calc(50% - 7.5%);
+  flex-basis: calc(50% - 7.5% - 20px);
 
   ${media.medium`
     display: none;
