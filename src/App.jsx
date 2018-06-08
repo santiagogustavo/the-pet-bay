@@ -16,7 +16,9 @@ import Index from './routes';
 import Route404 from './routes/404';
 import Route500 from './routes/500';
 import Hello from './routes/hello';
+import MyPets from './routes/my-pets';
 import PasswordRecovery from './routes/password-recovery';
+import Pet from './routes/pet';
 import Product from './routes/product';
 import Shop from './routes/shop';
 import ShoppingCart from './routes/shopping-cart';
@@ -36,6 +38,8 @@ class App extends React.Component {
             <Route path="/404" component={Route404} />
             <Route path="/500" component={Route500} />
             <Route path="/hello" component={Hello} />
+            <Route exact path="/my-pets" component={MyPets} />
+            <Route path="/my-pets/:id" component={Pet} />
             <Route path="/password-recovery" component={PasswordRecovery} />
             <Route exact path="/shop" component={Shop} />
             <Route path="/shop/:id" component={Product} />
