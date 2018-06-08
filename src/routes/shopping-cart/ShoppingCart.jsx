@@ -7,7 +7,7 @@ import Navbar from 'components/Navbar';
 import SeparatorTitle from 'components/SeparatorTitle';
 import { Content, Page } from 'components/styles';
 
-import { Item, ItemLink } from './styles';
+import { Header, Item, ItemLink, RemoveButton, Total } from './styles';
 
 class ShoppingCart extends React.Component {
   componentWillMount = () => this.redirectIfUnsigned();
@@ -28,18 +28,37 @@ class ShoppingCart extends React.Component {
         {
           this.props.items.length > 0 ?
             <div>
+              <Header>
+                <div>
+                  <i className="fas fa-list" />
+                  <span>Item</span>
+                </div>
+                <div>
+                  <i className="fas fa-dollar-sign" />
+                  <span>Preço</span>
+                </div>
+                <div>
+                  <i className="fas fa-times" />
+                  <span>Quantidade</span>
+                </div>
+                <div>
+                  <i className="fas fa-dollar-sign" />
+                  <span>Total</span>
+                </div>
+              </Header>
               {
                 this.props.items.map((item, index) => (
                   <Item key={_.uniqueId(item.id)}>
                     <ItemLink to={`/shop/${item.id}`}>
+                      <i className="fas fa-star" />
                       {item.name}
                     </ItemLink>
-                    <div>R$ {item.price}</div>
-                    <div>Quantidade: {item.count}</div>
-                    <div>Total: R$ {item.price * item.count}</div>
-                    <button onClick={() => this.props.removeItem(index)}>
-                      <i className="fas fa-times" />
-                    </button>
+                    <div><strong>R$</strong> {item.price.toFixed(2)}</div>
+                    <div>{item.count}</div>
+                    <Total><strong>R$</strong> {(item.price * item.count).toFixed(2)}</Total>
+                    <RemoveButton onClick={() => this.props.removeItem(index)}>
+                      <i className="fas fa-times fa-lg" />
+                    </RemoveButton>
                   </Item>
                 ))
               }
