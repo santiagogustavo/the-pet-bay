@@ -43,7 +43,7 @@ class UserDropdown extends React.Component {
                   <i className="fas fa-paw" />
                   Meus Pets
                 </NavLink>
-                <NavLink to="/my-calendar">
+                <NavLink to="/my-agenda">
                   <i className="far fa-calendar" />
                   Minha Agenda
                 </NavLink>

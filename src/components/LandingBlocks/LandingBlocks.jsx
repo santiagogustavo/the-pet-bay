@@ -20,7 +20,7 @@ const LandingBlocks = ({ signed }) => (
             <i className="fas fa-paw fa-2x" />
             Pets
           </Block>
-          <Block to="/my-calendar">
+          <Block to="/my-agenda">
             <i className="far fa-calendar fa-2x" />
             Agenda
           </Block>
