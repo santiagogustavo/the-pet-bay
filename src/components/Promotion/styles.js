@@ -4,12 +4,23 @@ import { Link } from 'react-router-dom';
 import { randomColor } from 'components/Utils/colors';
 import media from 'components/Utils/media';
 
+export const Brand = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fafafa;
+  height: 115px;
+  width: 115px;
+  border-radius: 50%;
+  background: ${props => (props.color ? props.color : randomColor())};
+`;
+
 export const Img = styled.img`
   display: block;
   height: 115px;
   width: 115px;
   border-radius: 50%;
-  background: ${props => (props.color ? props.color : randomColor())}
+  background: ${props => (props.color ? props.color : randomColor())};
 `;
 
 export const Separator = styled.div`

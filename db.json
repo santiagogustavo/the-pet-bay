@@ -14,7 +14,20 @@
       "id": 1
     }
   ],
-  "pets": [],
+  "pets": [
+    {
+      "user": 2,
+      "name": "Linus",
+      "species": "Gato",
+      "id": 1
+    },
+    {
+      "user": 2,
+      "name": "Napoleon",
+      "species": "Gato",
+      "id": 2
+    }
+  ],
   "users": [
     {
       "id": 1,
