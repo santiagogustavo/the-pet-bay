@@ -56,7 +56,15 @@ class ShoppingCart extends React.Component {
                     <div><strong>R$</strong> {item.price.toFixed(2)}</div>
                     <div>{item.count}</div>
                     <Total><strong>R$</strong> {(item.price * item.count).toFixed(2)}</Total>
-                    <RemoveButton onClick={() => this.props.removeItem(index)}>
+                    <RemoveButton
+                      onClick={() =>
+                        this.props.removeItem({
+                          id: item.id,
+                          quantity: item.quantity,
+                          count: item.count,
+                        }, index)
+                      }
+                    >
                       <i className="fas fa-times fa-lg" />
                     </RemoveButton>
                   </Item>

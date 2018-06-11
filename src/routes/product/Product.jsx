@@ -65,9 +65,10 @@ class Product extends React.Component {
             this.props.addItem({
               id: this.props.id,
               count: this.props.count,
+              quantity: this.props.quantity,
               name: this.props.name,
               price: this.props.price,
-            })
+            }, this.props.history)
           }
         >
           <i className="fas fa-plus" />
