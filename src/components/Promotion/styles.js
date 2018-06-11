@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { randomColor } from 'components/Utils/colors';
 import media from 'components/Utils/media';
 
 export const Img = styled.img`
@@ -8,6 +9,7 @@ export const Img = styled.img`
   height: 115px;
   width: 115px;
   border-radius: 50%;
+  background: ${props => (props.color ? props.color : randomColor())}
 `;
 
 export const Separator = styled.div`

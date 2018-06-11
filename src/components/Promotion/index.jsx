@@ -7,7 +7,7 @@ const Promotion = ({
   label, text, image, color, priceTag, to, ...props
 }) => (
   <Container to={to} {...props}>
-    <Img src={image} />
+    <Img src={image} color={color} />
     <Separator color={color} />
     <Text>
       <h4>{label}</h4>

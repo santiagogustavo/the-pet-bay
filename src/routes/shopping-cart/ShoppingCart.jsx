@@ -67,7 +67,7 @@ class ShoppingCart extends React.Component {
       <div>
         <EmptyContainer>
           <EmptyIcon className="fas fa-shopping-bag fa-2x" />
-          Não há nenhum item no carrinho.
+          Não há nenhum item no carrinho. <br />
           Adicione produtos e volte para fechar a compra!
         </EmptyContainer>
       </div>
