@@ -2,6 +2,8 @@ import Immutable from 'seamless-immutable';
 
 const initialState = Immutable({
   items: [],
+  closed: false,
+  isFetching: false,
 });
 
 const checkOverlap = (state, action) =>
@@ -14,7 +16,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'SHOPPING_CART/ADD_ITEM':
       if (checkOverlap(state, action) === -1) {
-        return state.merge({ items: state.items.concat(action.payload) });
+        return state.merge({ items: state.items.concat(action.payload), closed: false });
       }
       return state.setIn(
         ['items', checkOverlap(state, action), 'count'],
@@ -25,6 +27,10 @@ export default (state = initialState, action) => {
         items: state.items.slice(0, action.payload)
           .concat(state.items.slice(action.payload + 1, state.items.length)),
       });
+    case 'SHOPPING_CART/TOGGLE_FETCH':
+      return state.merge({ isFetching: !state.isFetching });
+    case 'SHOPPING_CART/CLOSE_BILL/SUCCESS':
+      return initialState.merge({ closed: true });
     default:
       return state;
   }

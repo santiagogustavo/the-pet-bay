@@ -17,6 +17,7 @@ export const Container = styled.header`
   & > * {
     flex: 1;
   }
+  & > *:focus { outline: none; }
   
   ${media.medium`
     align-content: flex-start;
@@ -45,9 +46,7 @@ export const LogoText = styled(Link)`
     margin: 0;
   }
   
-  & > * {
-    &:focus { outline: none }
-  }
+  & > *:focus { outline: none; }
 
   ${media.medium`
     margin: auto;
@@ -81,6 +80,7 @@ export const UserContentArea = styled.div`
   display: flex;
   align-content: baseline;
   height: 44px;
+  & > *:focus { outline: none; }
 `;
 
 export const UserDropdownArea = styled.div`

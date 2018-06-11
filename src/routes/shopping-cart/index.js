@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
 
-import { removeItem } from 'actions/shoppingCart';
+import { closeBill, removeItem } from 'actions/shoppingCart';
 import ShoppingCart from './ShoppingCart';
 
 const mapStateToProps = state => ({
   items: state.shoppingCart.items,
+  closed: state.shoppingCart.closed,
+  isFetching: state.shoppingCart.isFetching,
+  user: state.user.id,
   signed: state.user.signed,
 });
 
 const mapDispatchToProps = {
-  removeItem,
+  closeBill, removeItem,
 };
 
 export default connect(

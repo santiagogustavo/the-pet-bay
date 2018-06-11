@@ -3,11 +3,24 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 import Footer from 'components/Footer';
+import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import SeparatorTitle from 'components/SeparatorTitle';
-import { Content, Page } from 'components/styles';
+import { Content, Page, InfoText } from 'components/styles';
 
-import { Header, Item, ItemLink, RemoveButton, Total } from './styles';
+import {
+  BuyContainer,
+  BuyIcon,
+  Header,
+  Item,
+  ItemLink,
+  RemoveButton,
+  Total,
+  BuyButton,
+  ButtonContainer,
+  EmptyIcon,
+  EmptyContainer,
+} from './styles';
 
 class ShoppingCart extends React.Component {
   componentWillMount = () => this.redirectIfUnsigned();
@@ -15,6 +28,50 @@ class ShoppingCart extends React.Component {
 
   redirectIfUnsigned = () => {
     if (!this.props.signed) this.props.history.push('/');
+  }
+
+  renderCloseButton = () => (
+    <ButtonContainer>
+      {
+        this.props.isFetching ?
+          <Loader style={{ margin: 'auto' }} />
+          :
+          <BuyButton onClick={() => this.props.closeBill(this.props.user, this.props.items)}>
+            <i className="fas fa-shopping-bag" />
+            Fechar compra
+          </BuyButton>
+      }
+    </ButtonContainer>
+  );
+
+  renderClosedBill = () => {
+    if (this.props.closed) {
+      return (
+        <div>
+          <BuyContainer>
+            <BuyIcon className="fas fa-check fa-2x" />
+            Compra efetuada com sucesso!
+          </BuyContainer>
+          <InfoText style={{ marginTop: 20 }}>
+            Enviaremos um email com a sua fatura e mais informações sobre como receber o pedido
+          </InfoText>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  renderEmpty = () => {
+    if (this.props.closed) return null;
+    return (
+      <div>
+        <EmptyContainer>
+          <EmptyIcon className="fas fa-shopping-bag fa-2x" />
+          Não há nenhum item no carrinho.
+          Adicione produtos e volte para fechar a compra!
+        </EmptyContainer>
+      </div>
+    );
   }
 
   render = () => (
@@ -70,9 +127,11 @@ class ShoppingCart extends React.Component {
                   </Item>
                 ))
               }
+              {this.renderCloseButton()}
             </div>
-          : null
+          : this.renderEmpty()
         }
+        {this.renderClosedBill()}
       </Content>
       <Footer />
     </Page>
@@ -80,6 +139,7 @@ class ShoppingCart extends React.Component {
 }
 
 ShoppingCart.propTypes = {
+  closeBill: PropTypes.func.isRequired,
   removeItem: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
@@ -90,6 +150,9 @@ ShoppingCart.propTypes = {
     price: PropTypes.number,
     count: PropTypes.number,
   })).isRequired,
+  closed: PropTypes.bool.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  user: PropTypes.number.isRequired,
   signed: PropTypes.bool.isRequired,
 };
 

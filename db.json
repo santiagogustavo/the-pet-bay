@@ -1,4 +1,19 @@
 {
+  "bills": [
+    {
+      "user": 2,
+      "items": [
+        {
+          "id": 1,
+          "count": 5,
+          "quantity": 20,
+          "name": "Arranhador para gatos",
+          "price": 199
+        }
+      ],
+      "id": 1
+    }
+  ],
   "users": [
     {
       "id": 1,
