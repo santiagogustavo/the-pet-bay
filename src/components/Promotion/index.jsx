@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Img, Separator, Text, PriceTag } from './styles';
+import { Brand, Container, Img, Separator, Text, PriceTag } from './styles';
 
 const Promotion = ({
-  label, text, image, color, priceTag, to, ...props
+  label, text, image, icon, color, priceTag, to, ...props
 }) => (
   <Container to={to} {...props}>
-    <Img src={image} />
+    {
+      icon ?
+        <Brand color={color}>
+          <i className={icon} />
+        </Brand>
+      :
+        <Img src={image} color={color} />
+    }
     <Separator color={color} />
     <Text>
       <h4>{label}</h4>
@@ -20,7 +27,8 @@ const Promotion = ({
 Promotion.propTypes = {
   label: PropTypes.string.isRequired,
   text: PropTypes.string,
-  image: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  image: PropTypes.string,
   color: PropTypes.string,
   priceTag: PropTypes.string,
   to: PropTypes.string,
@@ -28,6 +36,8 @@ Promotion.propTypes = {
 
 Promotion.defaultProps = {
   text: '',
+  icon: '',
+  image: '',
   color: '#727272',
   priceTag: '',
   to: '/',

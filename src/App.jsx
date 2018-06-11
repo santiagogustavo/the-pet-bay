@@ -19,6 +19,7 @@ import Hello from './routes/hello';
 import MyAccount from './routes/my-account';
 import MyAgenda from './routes/my-agenda';
 import MyPets from './routes/my-pets';
+import NewPet from './routes/new-pet';
 import PasswordRecovery from './routes/password-recovery';
 import Pet from './routes/pet';
 import Product from './routes/product';
@@ -44,6 +45,7 @@ class App extends React.Component {
             <Route path="/my-account" component={MyAccount} />
             <Route path="/my-agenda" component={MyAgenda} />
             <Route exact path="/my-pets" component={MyPets} />
+            <Route path="/my-pets/new" component={NewPet} />
             <Route path="/my-pets/:id" component={Pet} />
             <Route path="/password-recovery" component={PasswordRecovery} />
             <Route path="/services" component={Services} />
