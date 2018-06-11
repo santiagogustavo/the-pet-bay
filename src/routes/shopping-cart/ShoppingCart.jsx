@@ -2,24 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
+import AnimatedToken from 'components/AnimatedToken';
 import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import SeparatorTitle from 'components/SeparatorTitle';
-import { Content, Page, InfoText } from 'components/styles';
+import {
+  Content,
+  ListHeader,
+  ListItem,
+  ListItemLink,
+  ListItemRemoveButton,
+  Page,
+  InfoText,
+} from 'components/styles';
 
 import {
-  BuyContainer,
-  BuyIcon,
-  Header,
-  Item,
-  ItemLink,
-  RemoveButton,
   Total,
   BuyButton,
   ButtonContainer,
-  EmptyIcon,
-  EmptyContainer,
 } from './styles';
 
 class ShoppingCart extends React.Component {
@@ -48,10 +49,11 @@ class ShoppingCart extends React.Component {
     if (this.props.closed) {
       return (
         <div>
-          <BuyContainer>
-            <BuyIcon className="fas fa-check fa-2x" />
-            Compra efetuada com sucesso!
-          </BuyContainer>
+          <AnimatedToken
+            color="#8BC34A"
+            icon="fas fa-check fa-2x"
+            text="Compra efetuada com sucesso!"
+          />
           <InfoText style={{ marginTop: 20 }}>
             Enviaremos um email com a sua fatura e mais informações sobre como receber o pedido
           </InfoText>
@@ -64,13 +66,11 @@ class ShoppingCart extends React.Component {
   renderEmpty = () => {
     if (this.props.closed) return null;
     return (
-      <div>
-        <EmptyContainer>
-          <EmptyIcon className="fas fa-shopping-bag fa-2x" />
-          Não há nenhum item no carrinho. <br />
-          Adicione produtos e volte para fechar a compra!
-        </EmptyContainer>
-      </div>
+      <AnimatedToken
+        color="#42A5F5"
+        icon="fas fa-shopping-bag fa-2x"
+        text="Não há nenhum item no carrinho. Adicione produtos e volte para fechar a compra!"
+      />
     );
   }
 
@@ -85,8 +85,8 @@ class ShoppingCart extends React.Component {
         {
           this.props.items.length > 0 ?
             <div>
-              <Header>
-                <div>
+              <ListHeader>
+                <div style={{ flexGrow: 2 }}>
                   <i className="fas fa-list" />
                   <span>Item</span>
                 </div>
@@ -98,22 +98,22 @@ class ShoppingCart extends React.Component {
                   <i className="fas fa-times" />
                   <span>Quantidade</span>
                 </div>
-                <div>
+                <Total>
                   <i className="fas fa-dollar-sign" />
                   <span>Total</span>
-                </div>
-              </Header>
+                </Total>
+              </ListHeader>
               {
                 this.props.items.map((item, index) => (
-                  <Item key={_.uniqueId(item.id)}>
-                    <ItemLink to={`/shop/${item.id}`}>
+                  <ListItem key={_.uniqueId(item.id)}>
+                    <ListItemLink to={`/shop/${item.id}`}>
                       <i className="fas fa-star" />
                       {item.name}
-                    </ItemLink>
+                    </ListItemLink>
                     <div><strong>R$</strong> {item.price.toFixed(2)}</div>
                     <div>{item.count}</div>
                     <Total><strong>R$</strong> {(item.price * item.count).toFixed(2)}</Total>
-                    <RemoveButton
+                    <ListItemRemoveButton
                       onClick={() =>
                         this.props.removeItem({
                           id: item.id,
@@ -123,8 +123,8 @@ class ShoppingCart extends React.Component {
                       }
                     >
                       <i className="fas fa-times fa-lg" />
-                    </RemoveButton>
-                  </Item>
+                    </ListItemRemoveButton>
+                  </ListItem>
                 ))
               }
               {this.renderCloseButton()}

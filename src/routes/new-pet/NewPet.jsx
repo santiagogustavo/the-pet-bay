@@ -57,7 +57,7 @@ class NewPet extends React.Component {
                   this.props.history,
                 )}
               >
-                ENTRAR
+                CRIAR
               </Primary>
             </ButtonContainer>
         }

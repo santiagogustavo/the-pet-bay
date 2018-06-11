@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
+import AnimatedToken from 'components/AnimatedToken';
 import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
@@ -10,7 +11,7 @@ import SeparatorTitle from 'components/SeparatorTitle';
 import { randomColor } from 'components/Utils/colors';
 import { Centralized, Content, Page, PromotionsContainer } from 'components/styles';
 
-import { EmptyContainer, EmptyIcon, ButtonContainer, AddButton } from './styles';
+import { ButtonContainer, AddButton } from './styles';
 
 class MyPets extends React.Component {
   componentWillMount = () => {
@@ -27,11 +28,11 @@ class MyPets extends React.Component {
   renderList = () => {
     if (this.props.pets.length === 0) {
       return (
-        <EmptyContainer>
-          <EmptyIcon className="fas fa-paw fa-2x" />
-          Você ainda não possui pets <br />
-          Clique no botão abaixo para cadastrar um!
-        </EmptyContainer>
+        <AnimatedToken
+          color="#FFCA28"
+          text="Você ainda não possui pets.
+          Clique no botão abaixo para cadastrar um!"
+        />
       );
     }
     return (
