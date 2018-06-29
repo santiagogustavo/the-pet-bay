@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
+
+import { ButtonPrimary } from 'components/Buttons';
 import media from 'components/Utils/media';
 
 export default styled.h1`
@@ -49,12 +52,18 @@ export const BasicInfo = styled.div`
   `}
 `;
 
+export const Display = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px auto;
+`;
+
 export const QuickDisplay = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: center;
   flex-direction: column;
-  margin-top: 25px;
   width: fit-content;
   margin: auto;
 
@@ -64,6 +73,7 @@ export const QuickDisplay = styled.div`
 
   ${media.medium`
     & > h3 {
+      margin: 15px;
       margin-right: 30px;
     }
     flex-direction: row;
@@ -74,11 +84,29 @@ export const Data = styled.div`
   display: flex;
   color: #616161;
   font-size: 18px;
+  margin: auto;
+
+  & + & { margin-top: 15px; }
 
   ${media.medium`
+    & + & { margin-top: auto; }
     & + &:before {
       content: ',';
       margin-right: 10px;
     }
+  `}
+`;
+
+export const DetailButton = styled(RouterLink)`
+  ${ButtonPrimary}
+  width: 70%;
+  margin-top: 25px;
+
+  ${media.small`
+    width: 40%;
+  `}
+  ${media.medium`
+    margin-top: auto;
+    width: fit-content;
   `}
 `;

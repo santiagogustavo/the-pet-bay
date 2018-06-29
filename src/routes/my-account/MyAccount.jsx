@@ -10,7 +10,15 @@ import Navbar from 'components/Navbar';
 import SeparatorTitle from 'components/SeparatorTitle';
 import { Centralized, Content, Page } from 'components/styles';
 
-import { Profile, Img, BasicInfo, QuickDisplay, Data } from './styles';
+import {
+  Profile,
+  Img,
+  BasicInfo,
+  Display,
+  QuickDisplay,
+  Data,
+  DetailButton,
+} from './styles';
 
 class MyAccount extends React.Component {
   componentWillMount = () => {
@@ -33,16 +41,19 @@ class MyAccount extends React.Component {
       );
     }
     return (
-      <QuickDisplay>
-        <h3>Pets Cadastrados</h3>
-        {
-          this.props.pets.map(pet => (
-            <Data key={_.uniqueId(pet.name)}>
-              {pet.name}
-            </Data>
-          ))
-        }
-      </QuickDisplay>
+      <Display>
+        <QuickDisplay>
+          <h3>Pets Cadastrados</h3>
+          {
+            this.props.pets.map(pet => (
+              <Data key={_.uniqueId(pet.name)}>
+                {pet.name}
+              </Data>
+            ))
+          }
+        </QuickDisplay>
+        <DetailButton to="/my-pets">Ver Detalhes</DetailButton>
+      </Display>
     );
   }
 
