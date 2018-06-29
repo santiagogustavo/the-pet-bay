@@ -8,11 +8,11 @@ import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import SeparatorTitle from 'components/SeparatorTitle';
-import { Centralized, Content, Page } from 'components/styles';
+import { BigImg, Centralized, Content, Page } from 'components/styles';
 
 import {
   Profile,
-  Img,
+  Primary,
   BasicInfo,
   Display,
   QuickDisplay,
@@ -63,10 +63,13 @@ class MyAccount extends React.Component {
       <Content>
         <SeparatorTitle label="Minha Conta" />
         <Profile>
-          <Img src={User} />
+          <BigImg src={User} />
           <BasicInfo>
             <h2>{this.props.name}</h2>
             <div>{this.props.email}</div>
+            <Primary to="/edit-profile" style={{ marginTop: 20 }}>
+              Editar Perfil
+            </Primary>
           </BasicInfo>
         </Profile>
         {this.renderPets()}

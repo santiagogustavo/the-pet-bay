@@ -23,11 +23,14 @@ export const Profile = styled.div`
   `}
 `;
 
-export const Img = styled.img`
-  display: block;
-  height: 125px;
-  width: 125px;
-  border-radius: 50%;
+export const Primary = styled(RouterLink)`
+  ${ButtonPrimary}
+  width: 100%;
+
+  ${media.medium`
+    margin-top: auto;
+    width: fit-content;
+  `}
 `;
 
 export const BasicInfo = styled.div`

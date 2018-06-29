@@ -3,6 +3,7 @@ import { Link as RouteLink } from 'react-router-dom';
 
 import { ButtonPrimary } from 'components/Buttons';
 import media from 'components/Utils/media';
+import { randomColor } from 'components/Utils/colors';
 
 const SlideIn = keyframes`
   0% { margin-top: 15px; opacity: 0 }
@@ -239,5 +240,25 @@ export const ListItemRemoveButton = styled.button`
     transform: translateY(-3px);
     box-shadow: #00000055 0px 3px 0px;
   }
+`;
+
+export const BigImg = styled.img`
+  display: block;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+
+export const BigSeparator = styled.div`
+  width: 100px;
+  height: 3px;
+  background: ${randomColor()};
+  margin: 25px;
+
+  ${media.medium`
+    width: 3px;
+    height: 100px;
+  `}
 `;
 
