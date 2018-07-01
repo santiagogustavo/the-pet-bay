@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import editAccount from './editAccount';
 import myPets from './myPets';
 import newPet from './newPet';
 import passwordRecovery from './passwordRecovery';
@@ -11,6 +12,7 @@ import signUp from './signUp';
 import user from './user';
 
 export default combineReducers({
+  editAccount,
   myPets,
   newPet,
   passwordRecovery,

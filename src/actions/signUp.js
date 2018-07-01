@@ -67,6 +67,7 @@ export const submitForm = (
     history.push('/');
   }).catch((response) => {
     dispatch(toggleFetch());
+    history.push('/500');
     console.log(response);
   });
 };

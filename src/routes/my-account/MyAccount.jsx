@@ -67,7 +67,7 @@ class MyAccount extends React.Component {
           <BasicInfo>
             <h2>{this.props.name}</h2>
             <div>{this.props.email}</div>
-            <Primary to="/edit-profile" style={{ marginTop: 20 }}>
+            <Primary to="/edit-account" style={{ marginTop: 20 }}>
               Editar Perfil
             </Primary>
           </BasicInfo>
