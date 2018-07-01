@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { TextField } from 'material-ui';
 
 import Footer from 'components/Footer';
+import ImageUploader from 'components/ImageUploader';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import {
@@ -15,6 +16,7 @@ class EditAccount extends React.Component {
     this.props.populateData({
       name: this.props.userName,
       email: this.props.userEmail,
+      image: this.props.userImage,
     });
   }
   componentDidUpdate = () => this.redirectIfUnsigned();
@@ -26,12 +28,14 @@ class EditAccount extends React.Component {
   render = () => {
     const {
       id,
+      image,
       name,
       email,
       passwordNew,
       errors,
       isFetching,
       history,
+      changeImage,
       changeName,
       changeEmail,
       changePasswordNew,
@@ -48,6 +52,11 @@ class EditAccount extends React.Component {
             Para alterar sua senha, digite sua senha nova
           </InfoText>
           <Form>
+            <ImageUploader
+              label="Imagem de perfil"
+              src={image}
+              onDrop={changeImage}
+            />
             <TextField
               fullWidth
               id="edit-account-name"
@@ -83,9 +92,9 @@ class EditAccount extends React.Component {
               <ButtonContainer>
                 <Primary
                   tabIndex="0"
-                  onClick={() => submitForm(id, name, email, passwordNew, history)}
+                  onClick={() => submitForm(id, image, name, email, passwordNew, history)}
                 >
-                  CRIAR
+                  SALVAR
                 </Primary>
               </ButtonContainer>
           }
@@ -99,8 +108,10 @@ class EditAccount extends React.Component {
 EditAccount.propTypes = {
   userName: PropTypes.string.isRequired,
   userEmail: PropTypes.string.isRequired,
+  userImage: PropTypes.string.isRequired,
   signed: PropTypes.bool.isRequired,
   id: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   passwordNew: PropTypes.string.isRequired,
@@ -110,6 +121,7 @@ EditAccount.propTypes = {
     push: PropTypes.func,
   }).isRequired,
   populateData: PropTypes.func.isRequired,
+  changeImage: PropTypes.func.isRequired,
   changeName: PropTypes.func.isRequired,
   changeEmail: PropTypes.func.isRequired,
   changePasswordNew: PropTypes.func.isRequired,

@@ -1,6 +1,7 @@
 import Immutable from 'seamless-immutable';
 
 const initialState = Immutable({
+  image: '',
   name: '',
   email: '',
   passwordNew: '',
@@ -12,6 +13,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'EDIT_ACCOUNT/POPULATE_DATA':
       return state.merge(action.payload);
+    case 'EDIT_ACCOUNT/CHANGE_IMAGE/SUCCESSFULL_SUBMIT':
+      return state.setIn(['image'], action.payload);
     case 'EDIT_ACCOUNT/CHANGE_NAME':
       return state.setIn(['name'], action.payload).setIn(['errors', 'name'], '');
     case 'EDIT_ACCOUNT/CHANGE_EMAIL':

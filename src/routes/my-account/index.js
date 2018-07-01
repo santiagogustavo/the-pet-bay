@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
   id: state.user.id,
   name: state.user.name,
   email: state.user.email,
+  image: state.user.image,
   pets: state.myPets.pets,
   isFetchingPets: state.myPets.isFetching,
 });

@@ -63,7 +63,7 @@ class MyAccount extends React.Component {
       <Content>
         <SeparatorTitle label="Minha Conta" />
         <Profile>
-          <BigImg src={User} />
+          <BigImg src={this.props.image || User} />
           <BasicInfo>
             <h2>{this.props.name}</h2>
             <div>{this.props.email}</div>
@@ -89,6 +89,7 @@ MyAccount.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   pets: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.id,
     name: PropTypes.string,

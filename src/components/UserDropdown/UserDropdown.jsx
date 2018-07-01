@@ -34,7 +34,7 @@ class UserDropdown extends React.Component {
   render = () => (
     <ClickOutside onClickOutside={this.handleOnClickOutside}>
       <Container>
-        <Img src={User} onClick={this.handleOnClick} />
+        <Img src={this.props.image || User} onClick={this.handleOnClick} />
         <Dropdown open={this.state.open} shrinked={this.props.shrinked}>
           {
             this.props.signed ?
@@ -77,6 +77,7 @@ class UserDropdown extends React.Component {
 UserDropdown.propTypes = {
   shrinked: PropTypes.bool,
   signed: PropTypes.bool,
+  image: PropTypes.string.isRequired,
   signOut: PropTypes.func.isRequired,
 };
 

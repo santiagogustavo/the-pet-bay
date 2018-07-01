@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import {
   populateData,
+  changeImage,
   changeName,
   changeEmail,
   changePasswordOld,
@@ -14,7 +15,9 @@ const mapStateToProps = state => ({
   id: state.user.id,
   userName: state.user.name,
   userEmail: state.user.email,
+  userImage: state.user.image,
   signed: state.user.signed,
+  image: state.editAccount.image,
   name: state.editAccount.name,
   email: state.editAccount.email,
   passwordOld: state.editAccount.passwordOld,
@@ -25,6 +28,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   populateData,
+  changeImage,
   changeName,
   changeEmail,
   changePasswordOld,

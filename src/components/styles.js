@@ -15,6 +15,7 @@ export const NavbarImg = styled.img`
   height: 40px;
   border-radius: 50%;
   transition: all 0.2s ease;
+  object-fit: cover;
 `;
 
 export const LandingLogo = styled.div`

@@ -4,6 +4,7 @@ import UserDropdown from './UserDropdown';
 
 const mapStateToProps = state => ({
   signed: state.user.signed,
+  image: state.user.image,
 });
 
 const mapDispatchToProps = {

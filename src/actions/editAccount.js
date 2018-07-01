@@ -8,6 +8,26 @@ export const populateData = user => ({
   payload: user,
 });
 
+export const changeImage = acceptedFiles => (dispatch) => {
+  const file = acceptedFiles.find(f => f);
+  const image = new Image();
+
+  image.onload = () => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      dispatch({
+        type: 'EDIT_ACCOUNT/CHANGE_IMAGE/SUCCESSFULL_SUBMIT',
+        payload: reader.result,
+      });
+    };
+  };
+
+  image.src = file.preview;
+
+  return { type: 'EDIT_ACCOUNT/CHANGE_IMAGE' };
+};
+
 export const changeName = event => ({
   type: 'EDIT_ACCOUNT/CHANGE_NAME',
   payload: event.target.value,
@@ -40,6 +60,7 @@ const validateForm = (name, email, passwordNew) => {
 
 export const submitForm = (
   id,
+  image,
   name,
   email,
   passwordNew,
@@ -56,7 +77,12 @@ export const submitForm = (
   return axios({
     method: 'PATCH',
     url: `http://localhost:4000/users/${id}`,
-    data: { name, email, password: passwordNew.length > 0 ? passwordNew : undefined },
+    data: {
+      image,
+      name,
+      email,
+      password: passwordNew.length > 0 ? passwordNew : undefined,
+    },
   }).then((response) => {
     dispatch(toggleFetch());
     dispatch(signIn(response.data));
