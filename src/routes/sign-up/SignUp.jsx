@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { TextField } from 'material-ui';
 
 import Footer from 'components/Footer';
+import ImageUploader from 'components/ImageUploader';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import {
@@ -12,6 +13,7 @@ import {
 const SignUp = ({
   name,
   email,
+  image,
   password,
   passwordConfirmation,
   errors,
@@ -19,6 +21,7 @@ const SignUp = ({
   history,
   changeName,
   changeEmail,
+  changeImage,
   changePassword,
   changePasswordConfirmation,
   submitForm,
@@ -32,6 +35,11 @@ const SignUp = ({
         Digite-os abaixo, você poderá editar e acrescentar mais informações depois!
       </InfoText>
       <Form>
+        <ImageUploader
+          label="Imagem de perfil"
+          src={image}
+          onDrop={changeImage}
+        />
         <TextField
           fullWidth
           id="sign-in-name"
@@ -76,7 +84,7 @@ const SignUp = ({
           <ButtonContainer>
             <Primary
               tabIndex="0"
-              onClick={() => submitForm(name, email, password, passwordConfirmation, history)}
+              onClick={() => submitForm(name, email, image, password, passwordConfirmation, history)}
             >
               CRIAR
             </Primary>
@@ -90,6 +98,7 @@ const SignUp = ({
 SignUp.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   passwordConfirmation: PropTypes.string.isRequired,
   errors: PropTypes.objectOf(PropTypes.string).isRequired,
@@ -99,6 +108,7 @@ SignUp.propTypes = {
   }).isRequired,
   changeName: PropTypes.func.isRequired,
   changeEmail: PropTypes.func.isRequired,
+  changeImage: PropTypes.func.isRequired,
   changePassword: PropTypes.func.isRequired,
   changePasswordConfirmation: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,

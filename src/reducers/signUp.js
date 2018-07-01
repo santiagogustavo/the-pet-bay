@@ -3,6 +3,7 @@ import Immutable from 'seamless-immutable';
 const initialState = Immutable({
   name: '',
   email: '',
+  image: '',
   password: '',
   passwordConfirmation: '',
   errors: {},
@@ -15,6 +16,8 @@ export default (state = initialState, action) => {
       return state.setIn(['name'], action.payload).setIn(['errors', 'name'], '');
     case 'SIGN_UP/CHANGE_EMAIL':
       return state.setIn(['email'], action.payload).setIn(['errors', 'email'], '');
+    case 'SIGN_UP/CHANGE_IMAGE/SUCCESSFULL_SUBMIT':
+      return state.setIn(['image'], action.payload);
     case 'SIGN_UP/CHANGE_PASSWORD':
       return state.setIn(['password'], action.payload).setIn(['errors', 'password'], '');
     case 'SIGN_UP/CHANGE_PASSWORD_CONFIRMATION':

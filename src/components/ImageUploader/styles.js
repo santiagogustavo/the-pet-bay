@@ -9,6 +9,7 @@ export const Container = styled.div`
   height: fit-content;
   width: fit-content;
   margin: auto;
+  cursor: pointer;
 `;
 
 export const Icon = styled.i`
@@ -25,6 +26,11 @@ export const Icon = styled.i`
   border-radius: 50%;
   color: #ffffff;
   background: #3498db;
+  transition: all 0.2s ease;
+
+  ${Container}:hover > & {
+    transform: scale(1.15);
+  }
 `;
 
 export const Img = styled.img`

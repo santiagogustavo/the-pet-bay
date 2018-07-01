@@ -13,6 +13,26 @@ export const changeEmail = event => ({
   payload: event.target.value,
 });
 
+export const changeImage = acceptedFiles => (dispatch) => {
+  const file = acceptedFiles.find(f => f);
+  const image = new Image();
+
+  image.onload = () => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      dispatch({
+        type: 'SIGN_UP/CHANGE_IMAGE/SUCCESSFULL_SUBMIT',
+        payload: reader.result,
+      });
+    };
+  };
+
+  image.src = file.preview;
+
+  return { type: 'SIGN_UP/CHANGE_IMAGE' };
+};
+
 export const changePassword = event => ({
   type: 'SIGN_UP/CHANGE_PASSWORD',
   payload: event.target.value,
@@ -42,6 +62,7 @@ const validateForm = (name, email, password, passwordConfirmation) => {
 export const submitForm = (
   name,
   email,
+  image,
   password,
   passwordConfirmation,
   history,
@@ -57,7 +78,9 @@ export const submitForm = (
   return axios({
     method: 'POST',
     url: 'http://localhost:4000/users',
-    data: { name, email, password },
+    data: {
+      name, email, image, password,
+    },
   }).then((response) => {
     dispatch(toggleFetch());
     dispatch(signIn(response.data));

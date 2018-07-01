@@ -45,11 +45,13 @@ class MyAccount extends React.Component {
         <QuickDisplay>
           <h3>Pets Cadastrados</h3>
           {
-            this.props.pets.map(pet => (
-              <Data key={_.uniqueId(pet.name)}>
-                {pet.name}
-              </Data>
-            ))
+            this.props.pets.length > 0 ?
+              this.props.pets.map(pet => (
+                <Data key={_.uniqueId(pet.name)}>
+                  {pet.name}
+                </Data>
+              ))
+            : <Data>Nenhum pet cadastrado!</Data>
           }
         </QuickDisplay>
         <DetailButton to="/my-pets">Ver Detalhes</DetailButton>
