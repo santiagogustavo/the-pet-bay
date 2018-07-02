@@ -8,7 +8,7 @@ import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import SeparatorTitle from 'components/SeparatorTitle';
-import { BigImg, Centralized, Content, Page } from 'components/styles';
+import { BigImg, ButtonContainer, Centralized, Content, Page } from 'components/styles';
 
 import {
   Profile,
@@ -18,6 +18,7 @@ import {
   QuickDisplay,
   Data,
   DetailButton,
+  RemoveButton,
 } from './styles';
 
 class MyAccount extends React.Component {
@@ -75,6 +76,25 @@ class MyAccount extends React.Component {
           </BasicInfo>
         </Profile>
         {this.renderPets()}
+        {
+          this.props.isFetching ?
+            <ButtonContainer>
+              <Loader style={{ margin: 'auto' }} />
+            </ButtonContainer>
+            :
+            <ButtonContainer>
+              <RemoveButton
+                onClick={() => this.props.deleteAccount(
+                  this.props.id,
+                  this.props.pets,
+                  this.props.history,
+                )}
+              >
+                <i className="fas fa-times" />
+                Remover Conta
+              </RemoveButton>
+            </ButtonContainer>
+        }
       </Content>
       <Footer />
     </Page>
@@ -84,6 +104,7 @@ class MyAccount extends React.Component {
 MyAccount.propTypes = {
   fetchPets: PropTypes.func.isRequired,
   // fetchAgenda: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
@@ -96,6 +117,7 @@ MyAccount.propTypes = {
     id: PropTypes.id,
     name: PropTypes.string,
   })).isRequired,
+  isFetching: PropTypes.bool.isRequired,
   isFetchingPets: PropTypes.bool.isRequired,
 };
 

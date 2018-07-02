@@ -1,6 +1,6 @@
 import axios from 'axios';
 import messages from './messages';
-import { signIn } from './user';
+import { signIn, signOut } from './user';
 import { validateEmail } from './validations';
 
 export const populateData = user => ({
@@ -93,6 +93,50 @@ export const submitForm = (
   }).catch((response) => {
     dispatch(toggleFetch());
     console.log(response);
+    history.push('/500');
+  });
+};
+
+export const deletePet = (pet, index, history) => (dispatch) => {
+  dispatch(toggleFetch());
+  return axios({
+    method: 'DELETE',
+    url: `http://localhost:4000/pets/${pet}`,
+  }).then(() => {
+    dispatch(toggleFetch());
+    dispatch({
+      type: 'MY_ACCOUNT/DELETE_PET/SUCCESS',
+      payload: index,
+    });
+  }).catch((response) => {
+    dispatch(toggleFetch());
+    console.log(response);
+    history.push('/500');
+  });
+};
+
+export const deletePets = (pets, history) => (dispatch) => {
+  pets.forEach(pet => dispatch(deletePet(pet.id, history)));
+  return ({
+    type: 'MY_ACCOUNT/DELETE_PETS',
+  });
+};
+
+export const deleteAccount = (id, pets, history) => (dispatch) => {
+  dispatch(toggleFetch());
+  return axios({
+    method: 'DELETE',
+    url: `http://localhost:4000/users/${id}`,
+  }).then(() => {
+    dispatch(toggleFetch());
+    dispatch({
+      type: 'MY_ACCOUNT/DELETE/SUCCESS',
+    });
+    dispatch(deletePets(pets, history));
+    dispatch(signOut());
+    history.push('/');
+  }).catch(() => {
+    dispatch(toggleFetch());
     history.push('/500');
   });
 };

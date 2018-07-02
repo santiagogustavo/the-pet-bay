@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
 
-import { ButtonPrimary } from 'components/Buttons';
+import { ButtonPrimary, ButtonDanger } from 'components/Buttons';
 import media from 'components/Utils/media';
 
 export default styled.h1`
@@ -110,6 +110,16 @@ export const DetailButton = styled(RouterLink)`
   `}
   ${media.medium`
     margin-top: auto;
+    width: fit-content;
+  `}
+`;
+
+export const RemoveButton = styled.div`
+  ${ButtonDanger}
+  & > i { margin-right: 10px; }
+  width: auto;
+
+  ${media.medium`
     width: fit-content;
   `}
 `;
