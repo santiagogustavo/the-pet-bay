@@ -37,7 +37,7 @@ class Shop extends React.Component {
                       priceTag={`R$ ${item.price}`}
                       color={randomColor()}
                       to={`/shop/${item.id}`}
-                      image={Placeholder}
+                      image={item.image || Placeholder}
                     />
                   </div>
                 ))}

@@ -4,6 +4,7 @@ const initialState = Immutable({
   id: -1,
   name: '',
   description: '',
+  image: '',
   price: -1,
   quantity: -1,
   count: 0,
