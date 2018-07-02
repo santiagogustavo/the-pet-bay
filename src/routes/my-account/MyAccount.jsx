@@ -25,7 +25,7 @@ class MyAccount extends React.Component {
   componentWillMount = () => {
     this.redirectIfUnsigned();
     this.props.fetchPets(this.props.id, this.props.history);
-    // this.props.fetchAgenda(this.props.id, this.props.history);
+    this.props.fetchAgenda(this.props.id, this.props.history);
   }
   componentDidUpdate = () => this.redirectIfUnsigned();
 
@@ -44,7 +44,7 @@ class MyAccount extends React.Component {
     return (
       <Display>
         <QuickDisplay>
-          <h3>Pets Cadastrados</h3>
+          <h3>Pets</h3>
           {
             this.props.pets.length > 0 ?
               this.props.pets.map(pet => (
@@ -59,6 +59,29 @@ class MyAccount extends React.Component {
       </Display>
     );
   }
+
+  renderAgenda = () => {
+    if (this.props.isFetchingAgenda) {
+      return (
+        <Centralized>
+          <Loader />
+        </Centralized>
+      );
+    }
+    return (
+      <Display>
+        <QuickDisplay>
+          <h3>Agenda</h3>
+          {
+            this.props.agenda.length > 0 ?
+              <Data>{this.props.agenda.length} eventos marcados</Data>
+              : <Data>Nenhum evento marcado!</Data>
+          }
+        </QuickDisplay>
+        <DetailButton to="/my-agenda">Ver Detalhes</DetailButton>
+      </Display>
+    );
+  };
 
   render = () => (
     <Page>
@@ -76,6 +99,7 @@ class MyAccount extends React.Component {
           </BasicInfo>
         </Profile>
         {this.renderPets()}
+        {this.renderAgenda()}
         {
           this.props.isFetching ?
             <ButtonContainer>
@@ -87,6 +111,7 @@ class MyAccount extends React.Component {
                 onClick={() => this.props.deleteAccount(
                   this.props.id,
                   this.props.pets,
+                  this.props.agenda,
                   this.props.history,
                 )}
               >
@@ -103,7 +128,7 @@ class MyAccount extends React.Component {
 
 MyAccount.propTypes = {
   fetchPets: PropTypes.func.isRequired,
-  // fetchAgenda: PropTypes.func.isRequired,
+  fetchAgenda: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
@@ -117,7 +142,11 @@ MyAccount.propTypes = {
     id: PropTypes.id,
     name: PropTypes.string,
   })).isRequired,
+  agenda: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.id,
+  })).isRequired,
   isFetching: PropTypes.bool.isRequired,
+  isFetchingAgenda: PropTypes.bool.isRequired,
   isFetchingPets: PropTypes.bool.isRequired,
 };
 

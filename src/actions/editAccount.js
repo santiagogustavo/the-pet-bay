@@ -97,23 +97,18 @@ export const submitForm = (
   });
 };
 
-export const deletePet = (pet, index, history) => (dispatch) => {
-  dispatch(toggleFetch());
-  return axios({
+export const deletePet = (pet, history) => dispatch =>
+  axios({
     method: 'DELETE',
     url: `http://localhost:4000/pets/${pet}`,
   }).then(() => {
-    dispatch(toggleFetch());
     dispatch({
       type: 'MY_ACCOUNT/DELETE_PET/SUCCESS',
-      payload: index,
     });
   }).catch((response) => {
-    dispatch(toggleFetch());
     console.log(response);
     history.push('/500');
   });
-};
 
 export const deletePets = (pets, history) => (dispatch) => {
   pets.forEach(pet => dispatch(deletePet(pet.id, history)));
@@ -122,7 +117,27 @@ export const deletePets = (pets, history) => (dispatch) => {
   });
 };
 
-export const deleteAccount = (id, pets, history) => (dispatch) => {
+export const deleteEvent = (event, history) => dispatch =>
+  axios({
+    method: 'DELETE',
+    url: `http://localhost:4000/bookings/${event}`,
+  }).then(() => {
+    dispatch({
+      type: 'MY_ACCOUNT/DELETE_EVENT/SUCCESS',
+    });
+  }).catch((response) => {
+    console.log(response);
+    history.push('/500');
+  });
+
+export const deleteAgenda = (agenda, history) => (dispatch) => {
+  agenda.forEach(event => dispatch(deleteEvent(event.id, history)));
+  return ({
+    type: 'MY_ACCOUNT/DELETE_AGENDA',
+  });
+};
+
+export const deleteAccount = (id, pets, agenda, history) => (dispatch) => {
   dispatch(toggleFetch());
   return axios({
     method: 'DELETE',
@@ -133,6 +148,7 @@ export const deleteAccount = (id, pets, history) => (dispatch) => {
       type: 'MY_ACCOUNT/DELETE/SUCCESS',
     });
     dispatch(deletePets(pets, history));
+    dispatch(deleteAgenda(agenda, history));
     dispatch(signOut());
     history.push('/');
   }).catch(() => {
