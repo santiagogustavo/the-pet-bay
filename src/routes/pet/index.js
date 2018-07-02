@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 
-import { fetch, deleteEvent, deletePet } from '../../actions/pet';
+import { clear, fetch, deleteEvent, deletePet } from '../../actions/pet';
 import Pet from './Pet';
 
 const mapStateToProps = state => ({
   name: state.pet.name,
   species: state.pet.species,
+  image: state.pet.image,
   errors: state.pet.errors,
   agenda: state.pet.agenda,
   isFetching: state.pet.isFetching,
@@ -14,7 +15,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetch, deleteEvent, deletePet,
+  clear, fetch, deleteEvent, deletePet,
 };
 
 export default connect(

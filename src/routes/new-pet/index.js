@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { changeName, changeSpecies, submitForm } from 'actions/newPet';
+import { changeName, changeSpecies, changeImage, submitForm } from 'actions/newPet';
 import NewPet from './NewPet';
 
 const mapStateToProps = state => ({
@@ -8,12 +8,13 @@ const mapStateToProps = state => ({
   signed: state.user.signed,
   name: state.newPet.name,
   species: state.newPet.species,
+  image: state.newPet.image,
   errors: state.newPet.errors,
   isFetching: state.newPet.isFetching,
 });
 
 const mapDispatchToProps = {
-  changeName, changeSpecies, submitForm,
+  changeName, changeSpecies, changeImage, submitForm,
 };
 
 export default connect(

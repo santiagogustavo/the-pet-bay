@@ -2,12 +2,12 @@ import axios from 'axios';
 import messages from './messages';
 
 export const changeName = event => ({
-  type: 'NEW_PET/CHANGE_NAME',
+  type: 'EDIT_PET/CHANGE_NAME',
   payload: event.target.value,
 });
 
 export const changeSpecies = event => ({
-  type: 'NEW_PET/CHANGE_SPECIES',
+  type: 'EDIT_PET/CHANGE_SPECIES',
   payload: event.target.value,
 });
 
@@ -20,7 +20,7 @@ export const changeImage = acceptedFiles => (dispatch) => {
     reader.readAsDataURL(file);
     reader.onload = () => {
       dispatch({
-        type: 'NEW_PET/CHANGE_IMAGE/SUCCESSFULL_SUBMIT',
+        type: 'EDIT_PET/CHANGE_IMAGE/SUCCESSFULL_SUBMIT',
         payload: reader.result,
       });
     };
@@ -28,11 +28,11 @@ export const changeImage = acceptedFiles => (dispatch) => {
 
   image.src = file.preview;
 
-  return { type: 'NEW_PET/CHANGE_IMAGE' };
+  return { type: 'EDIT_PET/CHANGE_IMAGE' };
 };
 
 export const toggleFetch = () => ({
-  type: 'NEW_PET/TOGGLE_FETCH',
+  type: 'EDIT_PET/TOGGLE_FETCH',
 });
 
 const validateForm = (name, species) => {
@@ -42,30 +42,52 @@ const validateForm = (name, species) => {
   return payload;
 };
 
-export const submitForm = (user, name, species, image, history) => (dispatch) => {
+export const submitForm = (id, name, species, image, history) => (dispatch) => {
   const payload = validateForm(name, species);
   if (Object.keys(payload).length > 0) {
     return dispatch({
-      type: 'NEW_PET/SUBMIT_FORM/FAILED_SUBMIT',
+      type: 'EDIT_PET/SUBMIT_FORM/FAILED_SUBMIT',
       payload,
     });
   }
   dispatch(toggleFetch());
   return axios({
-    method: 'POST',
-    url: 'http://localhost:4000/pets',
+    method: 'PATCH',
+    url: `http://localhost:4000/pets/${id}`,
     data: {
-      user, name, species, image,
+      name, species, image,
     },
   }).then(() => {
     dispatch(toggleFetch());
     dispatch({
-      type: 'NEW_PET/SUBMIT_FORM/SUCCESSFULL_SUBMIT',
+      type: 'EDIT_PET/SUBMIT_FORM/SUCCESSFULL_SUBMIT',
     });
-    history.push('/my-pets');
+    history.goBack();
   }).catch((response) => {
     dispatch(toggleFetch());
     console.log(response);
+    history.push('/500');
+  });
+};
+
+export const fetch = (user, id, history) => (dispatch) => {
+  dispatch(toggleFetch());
+  return axios({
+    method: 'GET',
+    url: 'http://localhost:4000/pets',
+    params: { user, id },
+  }).then((response) => {
+    dispatch(toggleFetch());
+    if (response.data.length !== 0) {
+      dispatch({
+        type: 'EDIT_PET/FETCH/SUCCESS',
+        payload: response.data[0],
+      });
+    } else {
+      history.goBack();
+    }
+  }).catch(() => {
+    dispatch(toggleFetch());
     history.push('/500');
   });
 };

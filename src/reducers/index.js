@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import editAccount from './editAccount';
+import editPet from './editPet';
 import myAgenda from './myAgenda';
 import myPets from './myPets';
 import newPet from './newPet';
@@ -14,6 +15,7 @@ import user from './user';
 
 export default combineReducers({
   editAccount,
+  editPet,
   myAgenda,
   myPets,
   newPet,

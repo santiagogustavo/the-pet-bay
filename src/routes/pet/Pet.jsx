@@ -2,16 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
+import Paw from 'assets/imgs/paw.png';
+
 import AnimatedToken from 'components/AnimatedToken';
 import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import SeparatorTitle from 'components/SeparatorTitle';
 import {
+  BigImg,
   ButtonContainer,
   Centralized,
   Content,
-  Form,
   ListHeader,
   ListItem,
   ListItemRemoveButton,
@@ -19,11 +21,12 @@ import {
   StyledH2,
 } from 'components/styles';
 
-import { Data, RemoveButton } from './styles';
+import { BasicInfo, Profile, Primary, RemoveButton } from './styles';
 
 class Pet extends React.Component {
   componentWillMount = () => {
     this.redirectIfUnsigned();
+    this.props.clear();
     this.props.fetch(this.props.user, this.props.match.params.id, this.props.history);
   }
   componentDidUpdate = () => this.redirectIfUnsigned();
@@ -72,34 +75,16 @@ class Pet extends React.Component {
   }
 
   renderData = () => (
-    <Form>
-      <Data>
-        <span>
-          Nome
-          <i className="far fa-sticky-note fa-2x" />
-        </span>
-        <div>{this.props.name}</div>
-      </Data>
-      <Data>
-        <span>
-          Espécie
-          <i className="fas fa-paw fa-2x" />
-        </span>
+    <Profile>
+      <BigImg src={this.props.image || Paw} />
+      <BasicInfo>
+        <h2>{this.props.name}</h2>
         <div>{this.props.species}</div>
-      </Data>
-      <ButtonContainer>
-        <RemoveButton
-          onClick={() => this.props.deletePet(
-            this.props.match.params.id,
-            this.props.agenda,
-            this.props.history,
-          )}
-        >
-          <i className="fas fa-times" />
-          Remover Pet
-        </RemoveButton>
-      </ButtonContainer>
-    </Form>
+        <Primary to={`/edit-pet/${this.props.match.params.id}`} style={{ marginTop: 20 }}>
+          Editar Pet
+        </Primary>
+      </BasicInfo>
+    </Profile>
   );
 
   render = () => (
@@ -121,6 +106,18 @@ class Pet extends React.Component {
               {this.renderData()}
               <StyledH2>Agenda</StyledH2>
               {this.renderAgenda()}
+              <ButtonContainer>
+                <RemoveButton
+                  onClick={() => this.props.deletePet(
+                    this.props.match.params.id,
+                    this.props.agenda,
+                    this.props.history,
+                  )}
+                >
+                  <i className="fas fa-times" />
+                  Remover Pet
+                </RemoveButton>
+              </ButtonContainer>
             </div>
         }
       </Content>
@@ -130,6 +127,7 @@ class Pet extends React.Component {
 }
 
 Pet.propTypes = {
+  clear: PropTypes.func.isRequired,
   fetch: PropTypes.func.isRequired,
   deleteEvent: PropTypes.func.isRequired,
   deletePet: PropTypes.func.isRequired,
@@ -143,6 +141,7 @@ Pet.propTypes = {
   }).isRequired,
   name: PropTypes.string.isRequired,
   species: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   agenda: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.string,
     date: PropTypes.string,

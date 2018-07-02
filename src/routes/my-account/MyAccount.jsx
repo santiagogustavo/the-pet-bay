@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 
 import User from 'assets/imgs/user.png';
 
+import AnimatedToken from 'components/AnimatedToken';
 import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import SeparatorTitle from 'components/SeparatorTitle';
-import { BigImg, ButtonContainer, Centralized, Content, Page } from 'components/styles';
+import {
+  BigImg,
+  ButtonContainer,
+  Centralized,
+  Content,
+  Page,
+  StyledH2,
+} from 'components/styles';
 
 import {
   Profile,
@@ -43,16 +50,19 @@ class MyAccount extends React.Component {
     }
     return (
       <Display>
+        <StyledH2>Pets</StyledH2>
         <QuickDisplay>
-          <h3>Pets</h3>
           {
             this.props.pets.length > 0 ?
-              this.props.pets.map(pet => (
-                <Data key={_.uniqueId(pet.name)}>
-                  {pet.name}
-                </Data>
-              ))
-            : <Data>Nenhum pet cadastrado!</Data>
+              <Data>
+                {this.props.pets.length} pet{this.props.pets.length > 1 ? 's' : ''}
+                &nbsp;cadastrado{this.props.pets.length > 1 ? 's' : ''}
+              </Data>
+            :
+              <AnimatedToken
+                color="#FFCA28"
+                text="Nenhum pet cadastrado"
+              />
           }
         </QuickDisplay>
         <DetailButton to="/my-pets">Ver Detalhes</DetailButton>
@@ -70,12 +80,20 @@ class MyAccount extends React.Component {
     }
     return (
       <Display>
+        <StyledH2>Agenda</StyledH2>
         <QuickDisplay>
-          <h3>Agenda</h3>
           {
             this.props.agenda.length > 0 ?
-              <Data>{this.props.agenda.length} eventos marcados</Data>
-              : <Data>Nenhum evento marcado!</Data>
+              <Data>
+                {this.props.agenda.length} evento{this.props.agenda.length > 1 ? 's' : ''}
+                &nbsp;marcado{this.props.agenda.length > 1 ? 's' : ''}
+              </Data>
+              :
+              <AnimatedToken
+                color="#8D6E63"
+                icon="fas fa-calendar fa-2x"
+                text="Sem eventos na agenda"
+              />
           }
         </QuickDisplay>
         <DetailButton to="/my-agenda">Ver Detalhes</DetailButton>
@@ -87,7 +105,10 @@ class MyAccount extends React.Component {
     <Page>
       <Navbar />
       <Content>
-        <SeparatorTitle label="Minha Conta" />
+        <SeparatorTitle
+          label="Minha Conta"
+          text="Veja as informações básicas da sua conta e perfil"
+        />
         <Profile>
           <BigImg src={this.props.image || User} />
           <BasicInfo>
@@ -140,7 +161,6 @@ MyAccount.propTypes = {
   image: PropTypes.string.isRequired,
   pets: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.id,
-    name: PropTypes.string,
   })).isRequired,
   agenda: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.id,

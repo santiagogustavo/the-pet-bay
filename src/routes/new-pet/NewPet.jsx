@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { TextField } from 'material-ui';
 
 import Footer from 'components/Footer';
+import ImageUploader from 'components/ImageUploader';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
 import { Content, Form, Page, StyledH2 } from 'components/styles';
@@ -24,6 +25,11 @@ class NewPet extends React.Component {
       <Content>
         <StyledH2>Novo Pet</StyledH2>
         <Form>
+          <ImageUploader
+            label="Foto do pet"
+            src={this.props.image}
+            onDrop={this.props.changeImage}
+          />
           <TextField
             fullWidth
             id="new-pet-name"
@@ -54,6 +60,7 @@ class NewPet extends React.Component {
                   this.props.user,
                   this.props.name,
                   this.props.species,
+                  this.props.image,
                   this.props.history,
                 )}
               >
@@ -70,12 +77,14 @@ class NewPet extends React.Component {
 NewPet.propTypes = {
   changeName: PropTypes.func.isRequired,
   changeSpecies: PropTypes.func.isRequired,
+  changeImage: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
   name: PropTypes.string.isRequired,
   species: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   errors: PropTypes.objectOf(PropTypes.string).isRequired,
   isFetching: PropTypes.bool.isRequired,
   user: PropTypes.number.isRequired,
