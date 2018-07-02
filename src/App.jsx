@@ -15,6 +15,7 @@ import 'assets/css/main.css';
 import Index from './routes';
 import Route404 from './routes/404';
 import Route500 from './routes/500';
+import EditAccount from './routes/edit-account';
 import Hello from './routes/hello';
 import MyAccount from './routes/my-account';
 import MyAgenda from './routes/my-agenda';
@@ -41,6 +42,7 @@ class App extends React.Component {
             <Route exact path="/" component={Index} />
             <Route path="/404" component={Route404} />
             <Route path="/500" component={Route500} />
+            <Route path="/edit-account" component={EditAccount} />
             <Route path="/hello" component={Hello} />
             <Route path="/my-account" component={MyAccount} />
             <Route path="/my-agenda" component={MyAgenda} />

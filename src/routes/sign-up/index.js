@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {
   changeName,
   changeEmail,
+  changeImage,
   changePassword,
   changePasswordConfirmation,
   submitForm,
@@ -12,6 +13,7 @@ import SignUp from './SignUp';
 const mapStateToProps = state => ({
   name: state.signUp.name,
   email: state.signUp.email,
+  image: state.signUp.image,
   password: state.signUp.password,
   passwordConfirmation: state.signUp.passwordConfirmation,
   errors: state.signUp.errors,
@@ -21,6 +23,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   changeName,
   changeEmail,
+  changeImage,
   changePassword,
   changePasswordConfirmation,
   submitForm,

@@ -5,6 +5,7 @@ const initialState = Immutable({
   signed: false,
   name: '',
   email: '',
+  image: '',
 });
 
 export default (state = initialState, action) => {
