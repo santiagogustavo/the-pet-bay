@@ -89,7 +89,7 @@ class Product extends React.Component {
             </Centralized>
           :
             <Container>
-              <Img src={Placeholder} />
+              <Img src={this.props.image || Placeholder} />
               <Separator />
               <Info>
                 <Title>
@@ -117,7 +117,6 @@ class Product extends React.Component {
 }
 
 Product.propTypes = {
-  description: PropTypes.string.isRequired,
   addItem: PropTypes.func.isRequired,
   fetch: PropTypes.func.isRequired,
   changeCount: PropTypes.func.isRequired,
@@ -131,6 +130,8 @@ Product.propTypes = {
   }).isRequired,
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired,

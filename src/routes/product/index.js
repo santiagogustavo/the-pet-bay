@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
   id: state.product.id,
   name: state.product.name,
   description: state.product.description,
+  image: state.product.image,
   price: state.product.price,
   quantity: state.product.quantity,
   count: state.product.count,

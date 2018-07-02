@@ -49,7 +49,7 @@ export const fetch = (user, id, history) => (dispatch) => {
   });
 };
 
-export const deleteEvent = (event, index, history) => (dispatch) => {
+export const deleteEvent = (event, history) => (dispatch) => {
   dispatch(toggleFetch());
   return axios({
     method: 'DELETE',
@@ -58,7 +58,6 @@ export const deleteEvent = (event, index, history) => (dispatch) => {
     dispatch(toggleFetch());
     dispatch({
       type: 'PET/DELETE_BOOKING/SUCCESS',
-      payload: index,
     });
   }).catch((response) => {
     dispatch(toggleFetch());
