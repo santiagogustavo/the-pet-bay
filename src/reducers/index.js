@@ -8,6 +8,7 @@ import newPet from './newPet';
 import passwordRecovery from './passwordRecovery';
 import pet from './pet';
 import product from './product';
+import services from './services';
 import shop from './shop';
 import shoppingCart from './shoppingCart';
 import signIn from './signIn';
@@ -24,6 +25,7 @@ export default combineReducers({
   passwordRecovery,
   pet,
   product,
+  services,
   shop,
   shoppingCart,
   signIn,
