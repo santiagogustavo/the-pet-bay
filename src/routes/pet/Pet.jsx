@@ -80,7 +80,7 @@ class Pet extends React.Component {
       <BasicInfo>
         <h2>{this.props.name}</h2>
         <div>{this.props.species}</div>
-        <Primary to="/edit-pet" style={{ marginTop: 20 }}>
+        <Primary to={`/edit-pet/${this.props.match.params.id}`} style={{ marginTop: 20 }}>
           Editar Pet
         </Primary>
       </BasicInfo>

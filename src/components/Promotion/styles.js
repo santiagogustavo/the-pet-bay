@@ -21,6 +21,7 @@ export const Img = styled.img`
   width: 115px;
   border-radius: 50%;
   background: ${props => (props.color ? props.color : randomColor())};
+  object-fit: cover;
 `;
 
 export const Separator = styled.div`
