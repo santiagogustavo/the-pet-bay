@@ -11,6 +11,26 @@ export const changeSpecies = event => ({
   payload: event.target.value,
 });
 
+export const changeImage = acceptedFiles => (dispatch) => {
+  const file = acceptedFiles.find(f => f);
+  const image = new Image();
+
+  image.onload = () => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      dispatch({
+        type: 'NEW_PET/CHANGE_IMAGE/SUCCESSFULL_SUBMIT',
+        payload: reader.result,
+      });
+    };
+  };
+
+  image.src = file.preview;
+
+  return { type: 'NEW_PET/CHANGE_IMAGE' };
+};
+
 export const toggleFetch = () => ({
   type: 'NEW_PET/TOGGLE_FETCH',
 });
@@ -22,7 +42,7 @@ const validateForm = (name, species) => {
   return payload;
 };
 
-export const submitForm = (user, name, species, history) => (dispatch) => {
+export const submitForm = (user, name, species, image, history) => (dispatch) => {
   const payload = validateForm(name, species);
   if (Object.keys(payload).length > 0) {
     return dispatch({
@@ -34,7 +54,9 @@ export const submitForm = (user, name, species, history) => (dispatch) => {
   return axios({
     method: 'POST',
     url: 'http://localhost:4000/pets',
-    data: { user, name, species },
+    data: {
+      user, name, species, image,
+    },
   }).then(() => {
     dispatch(toggleFetch());
     dispatch({

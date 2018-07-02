@@ -42,7 +42,8 @@ class MyPets extends React.Component {
             <div key={_.uniqueId(pet.id)}>
               <Promotion
                 label={pet.name}
-                icon="fas fa-paw fa-3x"
+                icon={pet.image ? null : 'fas fa-paw fa-3x'}
+                image={pet.image || null}
                 priceTag={pet.species}
                 color={randomColor()}
                 to={`/my-pets/${pet.id}`}

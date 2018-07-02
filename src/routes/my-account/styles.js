@@ -66,38 +66,16 @@ export const QuickDisplay = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: fit-content;
   margin: auto;
-
-  & > h3 {
-    color: #424242;
-  }
-
-  ${media.medium`
-    & > h3 {
-      margin: 15px;
-      margin-right: 30px;
-    }
-    flex-direction: row;
-  `}
 `;
 
 export const Data = styled.div`
-  display: flex;
   color: #616161;
   font-size: 18px;
   margin: auto;
-
-  & + & { margin-top: 15px; }
-
-  ${media.medium`
-    & + & { margin-top: auto; }
-    & + &:before {
-      content: ',';
-      margin-right: 10px;
-    }
-  `}
 `;
 
 export const DetailButton = styled(RouterLink)`
@@ -109,7 +87,7 @@ export const DetailButton = styled(RouterLink)`
     width: 40%;
   `}
   ${media.medium`
-    margin-top: auto;
+    margin-top: 25px;
     width: fit-content;
   `}
 `;

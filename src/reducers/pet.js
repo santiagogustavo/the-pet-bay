@@ -4,6 +4,7 @@ const initialState = Immutable({
   id: -1,
   name: '',
   species: '',
+  image: '',
   agenda: [],
   isFetching: false,
 });
@@ -19,6 +20,7 @@ export default (state = initialState, action) => {
         agenda: state.agenda.slice(0, action.payload)
           .concat(state.agenda.slice(action.payload + 1, state.agenda.length)),
       });
+    case 'PET/CLEAR':
     case 'PET/DELETE/SUCCESS':
       return initialState;
     default:

@@ -22,6 +22,10 @@ export const fetchAgenda = (user, id, history) => (dispatch) => {
   });
 };
 
+export const clear = () => ({
+  type: 'PET/CLEAR',
+});
+
 export const fetch = (user, id, history) => (dispatch) => {
   dispatch(toggleFetch());
   return axios({
