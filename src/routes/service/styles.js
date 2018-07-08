@@ -135,6 +135,16 @@ export const Unavailable = styled.div`
   color: #ef5350;
   margin: 30px 20px 10px 10px;
 `;
+export const PickersContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & > * { margin: 15px; }
+
+  ${media.medium`
+    flex-direction: row;
+  `}
+`;
 
 export const SignInButton = styled(RouteLink)`
   ${ButtonPrimary}

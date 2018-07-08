@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { DatePicker, TimePicker } from 'material-ui';
 
 import Placeholder from 'assets/imgs/placeholder.jpg';
 
@@ -13,6 +14,7 @@ import {
   Description,
   Img,
   Info,
+  PickersContainer,
   Separator,
   SignInButton,
   Subtitle,
@@ -32,7 +34,28 @@ class Service extends React.Component {
         </SignInButton>
       );
     }
-    return null;
+    return (
+      <PickersContainer>
+        <DatePicker
+          fullWidth
+          id="service-booking-date"
+          onChange={(event, date) => console.log(date.getUTCDate(), date.getUTCMonth() + 1, date.getUTCFullYear())}
+          DateTimeFormat={Intl.DateTimeFormat}
+          hintText="Data"
+          cancelLabel="Cancelar"
+          locale="pt-BR"
+        />
+        <TimePicker
+          fullWidth
+          id="service-booking-time"
+          onChange={(event, time) => console.log(time.getHours(), time.getMinutes())}
+          format="24hr"
+          hintText="Horário"
+          cancelLabel="Cancelar"
+          locale="pt-BR"
+        />
+      </PickersContainer>
+    );
   }
 
   render = () => (
