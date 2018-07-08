@@ -15,7 +15,7 @@ import {
 } from './styles';
 import { NavbarImg as Img } from '../styles';
 import UserDropdown from '../UserDropdown';
-import UserNotifications from '../UserNotifications';
+// import UserNotifications from '../UserNotifications';
 import UserSidebar from '../UserSidebar';
 import DottedIcon from '../DottedIcon';
 
@@ -62,7 +62,7 @@ class Navbar extends React.Component {
           </UserDropdownArea>
           {signed &&
             <UserContentArea>
-              <UserNotifications shrinked={this.state.shrinked} />
+              {/* <UserNotifications shrinked={this.state.shrinked} /> */}
               <RouterLink to="/shopping-cart">
                 <DottedIcon
                   icon="fas fa-shopping-cart"
