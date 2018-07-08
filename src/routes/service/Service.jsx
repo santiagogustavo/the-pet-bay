@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DatePicker, TimePicker } from 'material-ui';
+import _ from 'lodash';
+import { DatePicker, TimePicker, SelectField, MenuItem } from 'material-ui';
 
 import Placeholder from 'assets/imgs/placeholder.jpg';
 
@@ -15,15 +16,63 @@ import {
   Img,
   Info,
   PickersContainer,
+  SelectContainer,
   Separator,
+  BookButton,
+  BookContainer,
   SignInButton,
   Subtitle,
   Title,
 } from './styles';
 
 class Service extends React.Component {
-  componentWillMount = () =>
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      date: null,
+      time: null,
+      pet: null,
+    };
+  }
+
+  componentWillMount = () => {
     this.props.fetch(this.props.match.params.id, this.props.history);
+    if (this.props.signed) this.props.fetchPets(this.props.userId, this.props.history);
+  }
+
+  handleDate = (event, date) => this.setState({ date });
+  handleTime = (event, time) => this.setState({ time });
+  handlePet = (event, index, value) => this.setState({ pet: value });
+
+  renderPetsSelect = () => {
+    if (this.props.isFetchingPets) {
+      return (
+        <Centralized>
+          <Loader />
+        </Centralized>
+      );
+    }
+
+    if (this.props.pets.length > 0) {
+      return (
+        <SelectContainer>
+          <SelectField
+            value={this.state.pet}
+            onChange={this.handlePet}
+            floatingLabelText="Pet"
+          >
+            {
+              this.props.pets.map(pet =>
+                <MenuItem key={_.uniqueId(pet.name)} value={pet.id} primaryText={pet.name} />)
+              }
+          </SelectField>
+        </SelectContainer>
+      );
+    }
+
+    return null;
+  }
 
   renderBookContainer = () => {
     if (!this.props.signed) {
@@ -35,26 +84,43 @@ class Service extends React.Component {
       );
     }
     return (
-      <PickersContainer>
-        <DatePicker
-          fullWidth
-          id="service-booking-date"
-          onChange={(event, date) => console.log(date.getUTCDate(), date.getUTCMonth() + 1, date.getUTCFullYear())}
-          DateTimeFormat={Intl.DateTimeFormat}
-          hintText="Data"
-          cancelLabel="Cancelar"
-          locale="pt-BR"
-        />
-        <TimePicker
-          fullWidth
-          id="service-booking-time"
-          onChange={(event, time) => console.log(time.getHours(), time.getMinutes())}
-          format="24hr"
-          hintText="Horário"
-          cancelLabel="Cancelar"
-          locale="pt-BR"
-        />
-      </PickersContainer>
+      <div>
+        {this.renderPetsSelect()}
+        <PickersContainer>
+          <SignInButton to="/my-pets/new">
+            <i className="fas fa-plus" />
+            Adicionar Pet
+          </SignInButton>
+        </PickersContainer>
+        <PickersContainer>
+          <DatePicker
+            fullWidth
+            id="service-booking-date"
+            DateTimeFormat={Intl.DateTimeFormat}
+            hintText="Data"
+            cancelLabel="Cancelar"
+            locale="pt-BR"
+            onChange={this.handleDate}
+            value={this.state.date}
+          />
+          <TimePicker
+            fullWidth
+            id="service-booking-time"
+            format="24hr"
+            hintText="Horário"
+            cancelLabel="Cancelar"
+            locale="pt-BR"
+            onChange={this.handleTime}
+            value={this.state.time}
+          />
+        </PickersContainer>
+        <BookContainer>
+          <BookButton>
+            <i className="fas fa-plus" />
+            Agendar
+          </BookButton>
+        </BookContainer>
+      </div>
     );
   }
 
@@ -93,6 +159,7 @@ class Service extends React.Component {
 
 Service.propTypes = {
   fetch: PropTypes.func.isRequired,
+  fetchPets: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
@@ -101,13 +168,19 @@ Service.propTypes = {
       id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  pets: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.id,
+    name: PropTypes.name,
+  })).isRequired,
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   short: PropTypes.string.isRequired,
   long: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
+  isFetchingPets: PropTypes.bool.isRequired,
   signed: PropTypes.bool.isRequired,
+  userId: PropTypes.number.isRequired,
 };
 
 export default Service;

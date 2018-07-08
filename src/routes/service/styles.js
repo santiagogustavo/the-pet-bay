@@ -146,6 +146,53 @@ export const PickersContainer = styled.div`
   `}
 `;
 
+export const SelectContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: auto;
+
+  & > * {
+    margin: 15px;
+  }
+
+  ${media.medium`
+    flex-direction: row;
+    align-items: baseline;
+  `}
+`;
+
+export const BookButton = styled.div`
+  ${ButtonSuccess}
+  width: auto;
+
+  & > i {
+    margin-right: 10px;
+  }
+
+  ${props => (props.inactive ? css`
+    background: #9E9E9E;
+    &:hover {
+      background: #9E9E9E;
+    }
+  ` : null)}
+`;
+
+export const BookContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: auto;
+
+  & > * {
+    margin: 10px;
+  }
+
+  ${media.medium`
+    flex-direction: row;
+    align-items: baseline;
+    width: 300px;
+  `}
+`;
+
 export const SignInButton = styled(RouteLink)`
   ${ButtonPrimary}
   width: auto;

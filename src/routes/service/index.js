@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import { fetch } from 'actions/service';
+import { fetch as fetchPets } from 'actions/myPets';
 import Service from './Service';
 
 const mapStateToProps = state => ({
@@ -9,12 +10,15 @@ const mapStateToProps = state => ({
   short: state.service.short,
   long: state.service.long,
   image: state.service.image,
+  pets: state.myPets.pets,
   isFetching: state.service.isFetching,
+  isFetchingPets: state.myPets.isFetching,
+  userId: state.user.id,
   signed: state.user.signed,
 });
 
 const mapDispatchToProps = {
-  fetch,
+  fetch, fetchPets,
 };
 
 export default connect(
