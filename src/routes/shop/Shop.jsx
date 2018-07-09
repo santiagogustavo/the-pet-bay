@@ -34,7 +34,7 @@ class Shop extends React.Component {
                     <Promotion
                       label={item.name}
                       text={`Disponíveis: ${item.quantity}`}
-                      priceTag={`R$ ${item.price}`}
+                      priceTag={`R$ ${item.price.toFixed(2)}`}
                       color={randomColor()}
                       to={`/shop/${item.id}`}
                       image={item.image || Placeholder}
