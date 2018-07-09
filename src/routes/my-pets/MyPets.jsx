@@ -59,6 +59,7 @@ class MyPets extends React.Component {
     <Page>
       <Navbar />
       <Content>
+        <SeparatorTitle label="Meus Pets" />
         {
           this.props.isFetching ?
             <Centralized>
@@ -66,7 +67,6 @@ class MyPets extends React.Component {
             </Centralized>
             :
             <div>
-              <SeparatorTitle label="Meus Pets" />
               {this.renderList()}
               <ButtonContainer>
                 <AddButton to="/my-pets/new">

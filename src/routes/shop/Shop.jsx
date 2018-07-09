@@ -20,6 +20,7 @@ class Shop extends React.Component {
     <Page>
       <Navbar />
       <Content>
+        <SeparatorTitle label="Loja" />
         {
           this.props.isFetching ?
             <Centralized>
@@ -27,7 +28,6 @@ class Shop extends React.Component {
             </Centralized>
             :
             <div>
-              <SeparatorTitle label="Loja" />
               <PromotionsContainer>
                 {this.props.products.map(item => (
                   <div key={_.uniqueId(item.id)}>

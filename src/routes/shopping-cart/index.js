@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   items: state.shoppingCart.items,
   closed: state.shoppingCart.closed,
   isFetching: state.shoppingCart.isFetching,
+  isDeleting: state.shoppingCart.isDeleting,
   user: state.user.id,
   signed: state.user.signed,
 });

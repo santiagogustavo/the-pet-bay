@@ -4,6 +4,7 @@ const initialState = Immutable({
   items: [],
   closed: false,
   isFetching: false,
+  isDeleting: false,
 });
 
 const checkOverlap = (state, action) =>
@@ -29,6 +30,8 @@ export default (state = initialState, action) => {
       });
     case 'SHOPPING_CART/TOGGLE_FETCH':
       return state.merge({ isFetching: !state.isFetching });
+    case 'SHOPPING_CART/TOGGLE_DELETE':
+      return state.merge({ isDeleting: !state.isDeleting });
     case 'SHOPPING_CART/CLOSE_BILL/SUCCESS':
       return initialState.merge({ closed: true });
     default:

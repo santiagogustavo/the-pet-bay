@@ -13,17 +13,27 @@ export const addItem = (product, history) => dispatch =>
     history.push('/shopping-cart');
   });
 
-export const removeItem = (product, index) => dispatch =>
-  axios({
+export const toggleDelete = () => ({
+  type: 'SHOPPING_CART/TOGGLE_DELETE',
+});
+
+export const removeItem = (product, index, history) => (dispatch) => {
+  dispatch(toggleDelete());
+  return axios({
     method: 'PATCH',
     url: `http://localhost:4000/products/${product.id}`,
     data: { quantity: product.quantity },
   }).then(() => {
+    dispatch(toggleDelete());
     dispatch({
       type: 'SHOPPING_CART/REMOVE_ITEM',
       payload: index,
     });
+  }).catch(() => {
+    dispatch(toggleDelete());
+    history.push('/500');
   });
+};
 
 export const toggleFetch = () => ({
   type: 'SHOPPING_CART/TOGGLE_FETCH',
