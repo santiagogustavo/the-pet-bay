@@ -25,6 +25,14 @@ import {
 } from './styles';
 
 class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.props.history.listen(() => {
+      this.props.clear();
+    });
+  }
+
   componentWillMount = () => this.redirectIfUnsigned();
   componentDidUpdate = () => this.redirectIfUnsigned();
 
@@ -150,10 +158,12 @@ class ShoppingCart extends React.Component {
 }
 
 ShoppingCart.propTypes = {
+  clear: PropTypes.func.isRequired,
   closeBill: PropTypes.func.isRequired,
   removeItem: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
+    listen: PropTypes.func,
   }).isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,

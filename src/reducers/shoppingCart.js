@@ -28,6 +28,8 @@ export default (state = initialState, action) => {
         items: state.items.slice(0, action.payload)
           .concat(state.items.slice(action.payload + 1, state.items.length)),
       });
+    case 'SHOPPING_CART/CLEAR':
+      return state.setIn(['closed'], false);
     case 'SHOPPING_CART/TOGGLE_FETCH':
       return state.merge({ isFetching: !state.isFetching });
     case 'SHOPPING_CART/TOGGLE_DELETE':

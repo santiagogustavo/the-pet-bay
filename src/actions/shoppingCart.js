@@ -17,6 +17,10 @@ export const toggleDelete = () => ({
   type: 'SHOPPING_CART/TOGGLE_DELETE',
 });
 
+export const clear = () => ({
+  type: 'SHOPPING_CART/CLEAR',
+});
+
 export const removeItem = (product, index, history) => (dispatch) => {
   dispatch(toggleDelete());
   return axios({

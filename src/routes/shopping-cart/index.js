@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { closeBill, removeItem } from 'actions/shoppingCart';
+import { clear, closeBill, removeItem } from 'actions/shoppingCart';
 import ShoppingCart from './ShoppingCart';
 
 const mapStateToProps = state => ({
@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  closeBill, removeItem,
+  clear, closeBill, removeItem,
 };
 
 export default connect(
