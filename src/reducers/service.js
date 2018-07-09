@@ -7,6 +7,8 @@ const initialState = Immutable({
   long: '',
   image: '',
   isFetching: false,
+  isPosting: false,
+  success: false,
 });
 
 export default (state = initialState, action) => {
@@ -15,6 +17,10 @@ export default (state = initialState, action) => {
       return state.setIn(['isFetching'], !state.isFetching);
     case 'SERVICE/FETCH/SUCCESS':
       return state.merge({ ...action.payload });
+    case 'SERVICE/TOGGLE_POST':
+      return state.setIn(['isPosting'], !state.isPosting);
+    case 'SERVICE/POST_BOOKING/SUCCESS':
+      return state.setIn(['success'], true);
     default:
       return state;
   }

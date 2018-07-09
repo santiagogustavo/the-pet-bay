@@ -161,7 +161,7 @@ export const SelectContainer = styled.div`
   `}
 `;
 
-export const BookButton = styled.div`
+export const BookButton = styled.button`
   ${ButtonSuccess}
   width: auto;
 
@@ -204,5 +204,15 @@ export const SignInButton = styled(RouteLink)`
 
   ${media.medium`
     width: fit-content;
+  `}
+`;
+
+export const InfoPet = Info.extend`
+  padding-top: 15px;
+  color: #717171;
+  text-align: center;
+
+  ${media.medium`
+    text-align: left;
   `}
 `;

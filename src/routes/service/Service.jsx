@@ -5,6 +5,7 @@ import { DatePicker, TimePicker, SelectField, MenuItem } from 'material-ui';
 
 import Placeholder from 'assets/imgs/placeholder.jpg';
 
+import AnimatedToken from 'components/AnimatedToken';
 import Footer from 'components/Footer';
 import Loader from 'components/Loader';
 import Navbar from 'components/Navbar';
@@ -15,6 +16,7 @@ import {
   Description,
   Img,
   Info,
+  InfoPet,
   PickersContainer,
   SelectContainer,
   Separator,
@@ -71,7 +73,15 @@ class Service extends React.Component {
       );
     }
 
-    return null;
+    return (
+      <SelectContainer>
+        <InfoPet>
+          Você não possui nenhum pet ainda!
+          <br />
+          Clique no botão abaixo para cadastrar um pet antes de agendar
+        </InfoPet>
+      </SelectContainer>
+    );
   }
 
   renderBookContainer = () => {
@@ -81,6 +91,24 @@ class Service extends React.Component {
           <i className="fas fa-sign-in-alt" />
           Entre para agendar
         </SignInButton>
+      );
+    }
+    if (this.props.isPosting) {
+      return (
+        <Centralized>
+          <Loader />
+        </Centralized>
+      );
+    }
+    if (this.props.success) {
+      return (
+        <div style={{ marginTop: 30 }}>
+          <AnimatedToken
+            color="#8D6E63"
+            icon="fas fa-calendar fa-2x"
+            text="Agendado com sucesso!"
+          />
+        </div>
       );
     }
     return (
@@ -115,7 +143,16 @@ class Service extends React.Component {
           />
         </PickersContainer>
         <BookContainer>
-          <BookButton>
+          <BookButton
+            disabled={!(this.state.pet && this.state.date && this.state.time)}
+            onClick={() => this.props.postBooking({
+              user: this.props.userId,
+              pet: this.state.pet,
+              service: this.props.id,
+              date: this.state.date,
+              time: this.state.time,
+            }, this.props.history)}
+          >
             <i className="fas fa-plus" />
             Agendar
           </BookButton>
@@ -160,6 +197,7 @@ class Service extends React.Component {
 Service.propTypes = {
   fetch: PropTypes.func.isRequired,
   fetchPets: PropTypes.func.isRequired,
+  postBooking: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
@@ -179,6 +217,8 @@ Service.propTypes = {
   image: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
   isFetchingPets: PropTypes.bool.isRequired,
+  isPosting: PropTypes.bool.isRequired,
+  success: PropTypes.bool.isRequired,
   signed: PropTypes.bool.isRequired,
   userId: PropTypes.number.isRequired,
 };

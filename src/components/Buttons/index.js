@@ -6,6 +6,7 @@ const Button = css`
   font-size: 14px;
   text-decoration: none;
   color: #fafafa;
+  border: none;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: center;
@@ -21,6 +22,12 @@ const Button = css`
   }
   &:active {
     transform: none;    
+  }
+  &:disabled {
+    background-color: #757575 !important;
+    transform: none !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 `;
 

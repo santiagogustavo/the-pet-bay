@@ -35,6 +35,14 @@
       "pet": 2,
       "type": "Banho e Tosa",
       "date": "12/06/2018 13:00"
+    },
+    {
+      "user": 2,
+      "pet": 2,
+      "service": 1,
+      "date": "2018-07-21T03:00:00.000Z",
+      "time": "2018-07-08T20:25:45.127Z",
+      "id": 4
     }
   ],
   "pets": [
@@ -100,15 +108,15 @@
     "products": [
       {
         "id": 1,
-        "oldPrice": 200.00
+        "oldPrice": 200
       },
       {
         "id": 2,
-        "oldPrice": 999.00
+        "oldPrice": 999
       },
       {
         "id": 3,
-        "oldPrice": 0.00
+        "oldPrice": 0
       }
     ]
   },
@@ -144,7 +152,7 @@
     },
     {
       "id": 3
-    }   
+    }
   ],
   "users": [
     {
