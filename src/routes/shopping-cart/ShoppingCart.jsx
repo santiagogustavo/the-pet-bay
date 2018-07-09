@@ -106,7 +106,7 @@ class ShoppingCart extends React.Component {
               {
                 this.props.items.map((item, index) => (
                   <ListItem key={_.uniqueId(item.id)}>
-                    <ListItemLink to={`/shop/${item.id}`}>
+                    <ListItemLink to={`/shop/${item.id}`} style={{ flexGrow: 2 }}>
                       <i className="fas fa-star" />
                       {item.name}
                     </ListItemLink>

@@ -149,6 +149,7 @@ class Service extends React.Component {
               user: this.props.userId,
               pet: this.state.pet,
               service: this.props.id,
+              name: this.props.name,
               date: this.state.date,
               time: this.state.time,
             }, this.props.history)}
