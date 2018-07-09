@@ -8,6 +8,10 @@ export const togglePost = () => ({
   type: 'SERVICE/TOGGLE_POST',
 });
 
+export const clear = () => ({
+  type: 'SERVICE/CLEAR',
+});
+
 export const fetch = (id, history) => (dispatch) => {
   dispatch(toggleFetch());
   return axios({

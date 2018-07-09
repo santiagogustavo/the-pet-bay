@@ -21,6 +21,8 @@ export default (state = initialState, action) => {
       return state.setIn(['isPosting'], !state.isPosting);
     case 'SERVICE/POST_BOOKING/SUCCESS':
       return state.setIn(['success'], true);
+    case 'SERVICE/CLEAR':
+      return state.setIn(['success'], false);
     default:
       return state;
   }

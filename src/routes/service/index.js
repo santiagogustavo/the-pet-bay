@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetch, postBooking } from 'actions/service';
+import { clear, fetch, postBooking } from 'actions/service';
 import { fetch as fetchPets } from 'actions/myPets';
 import Service from './Service';
 
@@ -20,7 +20,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetch, fetchPets, postBooking,
+  clear, fetch, fetchPets, postBooking,
 };
 
 export default connect(

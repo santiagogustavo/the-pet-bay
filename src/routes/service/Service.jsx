@@ -36,6 +36,10 @@ class Service extends React.Component {
       time: null,
       pet: null,
     };
+
+    this.props.history.listen(() => {
+      this.props.clear();
+    });
   }
 
   componentWillMount = () => {
@@ -196,11 +200,13 @@ class Service extends React.Component {
 }
 
 Service.propTypes = {
+  clear: PropTypes.func.isRequired,
   fetch: PropTypes.func.isRequired,
   fetchPets: PropTypes.func.isRequired,
   postBooking: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
+    listen: PropTypes.func,
   }).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
