@@ -16,6 +16,7 @@ import {
   Content,
   ListHeader,
   ListItem,
+  ListItemLink,
   ListItemRemoveButton,
   Page,
   StyledH2,
@@ -48,19 +49,31 @@ class Pet extends React.Component {
               <i className="fas fa-calendar-alt" />
               <span>Data</span>
             </div>
+            <div>
+              <i className="fas fa-clock" />
+              <span>Horário</span>
+            </div>
           </ListHeader>
           {
-            this.props.agenda.map((event, index) => (
-              <ListItem key={_.uniqueId(event.id)}>
-                <div>{event.type}</div>
-                <div>{event.date}</div>
-                <ListItemRemoveButton
-                  onClick={() => this.props.deleteEvent(event.id, index, this.props.history)}
-                >
-                  <i className="fas fa-times fa-lg" />
-                </ListItemRemoveButton>
-              </ListItem>
-            ))
+            this.props.agenda.map((event, index) => {
+              const date = new Date(event.date);
+              const time = new Date(event.time);
+              return (
+                <ListItem key={_.uniqueId(event.id)}>
+                  <ListItemLink to={`/services/${event.service}`}>
+                    <i className="fas fa-star" />
+                    {event.name}
+                  </ListItemLink>
+                  <div>{`${date.getUTCDate()}/${date.getUTCMonth() + 1}/${date.getUTCFullYear()}`}</div>
+                  <div>{`${`0${time.getUTCHours()}`.slice(-2)}:${`0${time.getUTCMinutes()}`.slice(-2)}`}</div>
+                  <ListItemRemoveButton
+                    onClick={() => this.props.deleteEvent(event.id, index, this.props.history)}
+                  >
+                    <i className="fas fa-times fa-lg" />
+                  </ListItemRemoveButton>
+                </ListItem>
+              );
+            })
           }
         </div>
       );

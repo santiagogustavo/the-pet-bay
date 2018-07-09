@@ -174,6 +174,8 @@ export const ListHeader = styled.div`
     color: #212121;
     font-weight: bold;
     flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
     padding: 5px;
     & > span { display: none; }
     & > i { margin-right: 0px; }
@@ -203,6 +205,9 @@ export const ListItem = styled.div`
   margin: 20px auto;
 
   & > * {
+    white-space: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
     text-align: center;
     color: #212121;
     fill: #212121;
@@ -219,7 +224,6 @@ export const ListItem = styled.div`
 `;
 
 export const ListItemLink = styled(RouteLink)`
-  flex-grow: 2;
   text-decoration: none;
   color: #0288D1;
   & > i { margin-right: 10px; } 
@@ -228,6 +232,7 @@ export const ListItemLink = styled(RouteLink)`
 
 export const ListItemRemoveButton = styled.button`
   flex: 0;
+  overflow: unset;
   height: 30px;
   width: 30px;
   border: none;

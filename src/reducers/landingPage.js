@@ -6,6 +6,10 @@ const initialState = Immutable({
     products: [],
     isFetching: false,
   },
+  services: {
+    services: [],
+    isFetching: false,
+  },
 });
 
 export default (state = initialState, action) => {
@@ -23,6 +27,17 @@ export default (state = initialState, action) => {
       return state.setIn(['promotions', 'products', action.index], {
         ...action.payload, oldPrice: state.promotions.products[action.index].oldPrice,
       });
+    case 'LANDING_PAGE/SERVICES/TOGGLE_FETCH':
+      return state.setIn(['services', 'isFetching'], !state.services.isFetching);
+    case 'LANDING_PAGE/SERVICES/SERVICE/TOGGLE_FETCH':
+      return state.setIn(
+        ['services', 'services', action.index, 'isFetching'],
+        !state.services.services[action.index].isFetching,
+      );
+    case 'LANDING_PAGE/SERVICES/FETCH/SUCCESS':
+      return state.merge({ services: { services: action.payload } });
+    case 'LANDING_PAGE/SERVICES/SERVICE/FETCH/SUCCESS':
+      return state.setIn(['services', 'services', action.index], { ...action.payload });
     default:
       return state;
   }

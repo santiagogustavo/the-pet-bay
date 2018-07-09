@@ -2,14 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { Link as RouteLink } from 'react-router-dom';
 
-import PetHotelBanner from 'assets/imgs/pet_hotel_banner.jpg';
 import Placeholder from 'assets/imgs/placeholder.jpg';
-import VetDog from 'assets/imgs/vet_dog.jpg';
-import WashDogs from 'assets/imgs/wash_dogs.jpg';
 
-import { fetchPromotions } from 'actions/landingPage';
+import { fetchPromotions, fetchServices } from 'actions/landingPage';
 
 import Footer from 'components/Footer';
 import LandingArea from 'components/LandingArea';
@@ -22,13 +18,14 @@ import {
   Centralized,
   Content,
   Page,
-  PromotionsBanner,
   PromotionsContainer,
 } from 'components/styles';
 
 class Index extends React.Component {
-  componentWillMount = () =>
+  componentWillMount = () => {
+    this.props.fetchServices(this.props.history);
     this.props.fetchPromotions(this.props.history);
+  }
 
   renderPromotions = () => {
     if (this.props.promotions.isFetching) {
@@ -71,41 +68,53 @@ class Index extends React.Component {
     );
   }
 
-  render = () => (
-    <Page>
-      <Navbar />
-      <Content>
-        <LandingArea />
+  renderServices = () => {
+    if (this.props.services.isFetching) {
+      return (
+        <Centralized>
+          <Loader />
+        </Centralized>
+      );
+    }
+    return (
+      <div>
         <SeparatorTitle
           label="Serviços"
           text="Marque um check-up!"
         />
         <PromotionsContainer>
-          <div>
-            <Promotion
-              label="Banho e Tosa"
-              text="Para cães e gatos"
-              color={randomColor()}
-              image={WashDogs}
-            />
-          </div>
-          <div>
-            <Promotion
-              label="Veterinário"
-              text="Exames e cirurgias"
-              color={randomColor()}
-              image={VetDog}
-            />
-          </div>
+          {
+            this.props.services.services.map(service => (
+              <div key={_.uniqueId(service.id)}>
+                {
+                  service.isFetching ?
+                    <Centralized>
+                      <Loader />
+                    </Centralized>
+                    :
+                    <Promotion
+                      label={service.name || 'service'}
+                      text={service.short}
+                      color={randomColor()}
+                      image={service.image || Placeholder}
+                      to={`/services/${service.id}`}
+                    />
+                }
+              </div>
+            ))
+          }
         </PromotionsContainer>
+      </div>
+    );
+  }
+
+  render = () => (
+    <Page>
+      <Navbar />
+      <Content>
+        <LandingArea />
+        {this.renderServices()}
         {this.renderPromotions()}
-        <SeparatorTitle
-          label="Pet Hotel Las Vegas"
-          text="Clique abaixo para saber mais!"
-        />
-        <RouteLink to="/pet-hotel">
-          <PromotionsBanner src={PetHotelBanner} />
-        </RouteLink>
       </Content>
       <Footer />
     </Page>
@@ -114,6 +123,7 @@ class Index extends React.Component {
 
 Index.propTypes = {
   fetchPromotions: PropTypes.func.isRequired,
+  fetchServices: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
@@ -128,14 +138,26 @@ Index.propTypes = {
     })),
     isFetching: PropTypes.bool,
   }).isRequired,
+  services: PropTypes.shape({
+    services: PropTypes.arrayOf(PropTypes.oneOfType([
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        short: PropTypes.string,
+        isFetching: PropTypes.bool,
+      }),
+    ])),
+    isFetching: PropTypes.bool,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
   promotions: state.landingPage.promotions,
+  services: state.landingPage.services,
 });
 
 const mapDispatchToProps = {
-  fetchPromotions,
+  fetchPromotions, fetchServices,
 };
 
 export default connect(

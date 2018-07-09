@@ -25,6 +25,7 @@ import NewPet from './routes/new-pet';
 import PasswordRecovery from './routes/password-recovery';
 import Pet from './routes/pet';
 import Product from './routes/product';
+import Service from './routes/service';
 import Services from './routes/services';
 import Shop from './routes/shop';
 import ShoppingCart from './routes/shopping-cart';
@@ -52,7 +53,8 @@ class App extends React.Component {
             <Route path="/my-pets/new" component={NewPet} />
             <Route path="/my-pets/:id" component={Pet} />
             <Route path="/password-recovery" component={PasswordRecovery} />
-            <Route path="/services" component={Services} />
+            <Route exact path="/services" component={Services} />
+            <Route path="/services/:id" component={Service} />
             <Route exact path="/shop" component={Shop} />
             <Route path="/shop/:id" component={Product} />
             <Route path="/shopping-cart" component={ShoppingCart} />
