@@ -162,8 +162,7 @@ export const StyledH4 = styled.h4`
 `;
 
 export const ListHeader = styled.div`
-  display: flex;
-  align-items: center;
+  display: none;
   width: 80%;
   margin: 20px auto;
 
@@ -185,6 +184,8 @@ export const ListHeader = styled.div`
   & > div:last-child { margin-right: 30px }
 
   ${media.large`
+    display: flex;
+    align-items: center;
     & > div {
       justify-content: flex-start;
       & > span { display: block; }
@@ -197,27 +198,28 @@ export const ListHeader = styled.div`
 
 export const ListItem = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   border-radius: 40px;
   background: #E0E0E0;
   padding: 10px 20px;
-  align-items: center;
   width: 80%;
   margin: 20px auto;
 
   & > * {
-    white-space: break-word;
-    text-overflow: ellipsis;
-    overflow: hidden;
     text-align: center;
     color: #212121;
     fill: #212121;
     flex: 1;
+    margin: 5px;
   }
 
   & > div { padding: 5px; }
 
   ${media.large`
-    & > *{
+    flex-direction: row;
+    & > * {
       text-align: left;
     }
   `}
@@ -226,12 +228,16 @@ export const ListItem = styled.div`
 export const ListItemLink = styled(RouteLink)`
   text-decoration: none;
   color: #0288D1;
-  & > i { margin-right: 10px; } 
+  & > i {
+    display: inline;
+    margin-right: 10px;
+  }
   &:hover { color: #03A9F4; }
 `;
 
 export const ListItemRemoveButton = styled.button`
   flex: 0;
+  flex-basis: auto;
   overflow: unset;
   height: 30px;
   width: 30px;
